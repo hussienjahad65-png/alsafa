@@ -92,7 +92,7 @@ const Cell: React.FC<{ children?: React.ReactNode, className?: string}> = ({ chi
 export default function TeacherGradeSheetPDF({ students, classData, subject, teacherName, settings, pageNumber, totalPages, startingIndex, isPrimary1_4, isPrimary5_6 }: TeacherGradeSheetPDFProps) {
     const MAX_ROWS_PER_PAGE = 21;
     
-    const teacherLabel = settings.schoolLevel === 'ابتدائية' ? 'المعلم' : 'المدرس';
+    const teacherLabel = settings.schoolLevel === 'ابتدائية' ? 'المعلم' : 'المعلم';
     const studentLabel = settings.schoolLevel === 'ابتدائية' ? 'التلميذ' : 'الطالب';
 
     const formatGradeForPdf = (gradeValue: number | null, schoolGender: string | undefined): string | number => {

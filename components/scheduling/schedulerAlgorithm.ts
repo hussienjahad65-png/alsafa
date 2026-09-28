@@ -340,7 +340,7 @@ export function validateScheduleFeasibility(
                 type: 'teacher_overload',
                 teacherId,
                 teacherName: data.teacher.name,
-                message: `المدرس (${data.teacher.name}) لديه ${data.totalPeriods} حصة، ولكن جميع أيامه محددة كيوم تفرغ!`,
+                message: `المعلم (${data.teacher.name}) لديه ${data.totalPeriods} حصة، ولكن جميع أيامه محددة كيوم تفرغ!`,
                 details: 'يرجى إلغاء بعض أيام التفرغ لتوزيع حصصه بانتظام.'
             });
         } else if (availableDays.length > 0) {
@@ -359,7 +359,7 @@ export function validateScheduleFeasibility(
                     type: 'teacher_overload',
                     teacherId,
                     teacherName: data.teacher.name,
-                    message: `نصاب المدرس (${data.teacher.name}) يبلغ (${data.totalPeriods} حصة) ويتجاوز الطاقة الاستيعابية (${maxPossibleTeacherSlots} حصة) في ${availableDays.length} أيام دوام مع مراعاة التفرغات الجزئية.`,
+                    message: `نصاب المعلم (${data.teacher.name}) يبلغ (${data.totalPeriods} حصة) ويتجاوز الطاقة الاستيعابية (${maxPossibleTeacherSlots} حصة) في ${availableDays.length} أيام دوام مع مراعاة التفرغات الجزئية.`,
                     details: `يُفضل تقليل أيام التفرغ أو الحصص المفرغة، أو زيادة الحد الأقصى اليومي للحصص.`
                 });
             }
@@ -1181,8 +1181,8 @@ export function findScheduleConflicts(
                         className: clsName,
                         subjectName: assignment.subject,
                         message: isFullDay
-                            ? `تعارض إجازة: المدرس (${assignment.teacher}) لديه حصة (${assignment.subject}) لشعبة (${clsName}) في يوم (${DAYS_ARABIC[day] || day}) الحصة (${periodNumber}) وهو يوم تفرغ كامل محدد له.`
-                            : `تعارض تفريغ جزئي: المدرس (${assignment.teacher}) لديه حصة (${assignment.subject}) لشعبة (${clsName}) في يوم (${DAYS_ARABIC[day] || day}) الحصة (${periodNumber}) وهو مفرغ جزئياً من هذه الحصة.`
+                            ? `تعارض إجازة: المعلم (${assignment.teacher}) لديه حصة (${assignment.subject}) لشعبة (${clsName}) في يوم (${DAYS_ARABIC[day] || day}) الحصة (${periodNumber}) وهو يوم تفرغ كامل محدد له.`
+                            : `تعارض تفريغ جزئي: المعلم (${assignment.teacher}) لديه حصة (${assignment.subject}) لشعبة (${clsName}) في يوم (${DAYS_ARABIC[day] || day}) الحصة (${periodNumber}) وهو مفرغ جزئياً من هذه الحصة.`
                     });
                 }
             });

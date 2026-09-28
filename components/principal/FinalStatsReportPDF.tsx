@@ -114,7 +114,7 @@ export default function FinalStatsReportPDF({ settings, classData, students, sub
             {/* Footer with adequate space and official look */}
             <footer className="mt-4 flex justify-between items-end font-bold px-4 border-t-2 border-black pt-4 pb-8 flex-shrink-0">
                 <div className="text-center w-48">
-                    <p className="mb-12">توقيع مدرس المادة</p>
+                    <p className="mb-12">توقيع معلم المادة</p>
                     <div className="w-full h-px bg-black opacity-40"></div>
                 </div>
                 <div className="text-center text-xs text-gray-400">

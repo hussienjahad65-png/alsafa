@@ -6,7 +6,7 @@ import { db, auth, firebase } from '../lib/firebase.ts';
 const PRINCIPAL_USER: User = {
     id: 'principal_al_hamza',
     role: 'principal',
-    name: 'ثامر جاسم محمد حبل الحجامي',
+    name: 'محمد حسن هادي',
     schoolName: 'الصفا والمروة الابتدائية',
     schoolLevel: 'ابتدائية',
     code: 'Fwg!&ui70',

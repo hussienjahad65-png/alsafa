@@ -1218,7 +1218,7 @@ export default function ClassAdvisorDashboard({ teacher, classes, settings }: Cl
                                 </div>
                             ) : (
                                 <p className="text-sm text-amber-800 py-4 text-center">
-                                    سيظهر ترتيب الأوائل بمجرد إدخال الدرجات من المدرسين.
+                                    سيظهر ترتيب الأوائل بمجرد إدخال الدرجات من المعلمين.
                                 </p>
                             )}
                         </div>
@@ -1231,7 +1231,7 @@ export default function ClassAdvisorDashboard({ teacher, classes, settings }: Cl
                             </h4>
                             <ul className="space-y-2.5 text-xs font-semibold text-red-900 list-disc list-inside leading-relaxed">
                                 <li>متابعة انضباط وحضور وغياب طلاب الشعبة بشكل يومي.</li>
-                                <li>رصد المستويات الدراسية المتراجعة والتواصل مع المدرسين المعنيين.</li>
+                                <li>رصد المستويات الدراسية المتراجعة والتواصل مع المعلمين المعنيين.</li>
                                 <li>التواصل المستمر مع أولياء الأمور وحل المشكلات السلوكية مبكراً.</li>
                                 <li>تقديم الدعم النفسي والتربوي وتعزيز روح التعاون داخل الصف.</li>
                             </ul>

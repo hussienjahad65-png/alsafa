@@ -113,7 +113,7 @@ export default function TeacherScheduleView({ currentUser, users }: TeacherSched
         
         const responder = users.find(u => u.name === targetAssignment.teacher);
         if (!responder) {
-            alert("لم يتم العثور على المدرس المستهدف للتبديل.");
+            alert("لم يتم العثور على المعلم المستهدف للتبديل.");
             setSwapCandidate(null);
             return;
         }

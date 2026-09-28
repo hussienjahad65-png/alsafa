@@ -120,7 +120,7 @@ export default function TeacherScheduleTableModal({
                             <BookOpen className="w-6 h-6 text-cyan-300" />
                         </div>
                         <div>
-                            <h3 className="text-xl font-black tracking-wide">جدول توزيع الحصص والمواد والشعب للمدرسين</h3>
+                            <h3 className="text-xl font-black tracking-wide">جدول توزيع الحصص والمواد والشعب للمعلمين</h3>
                             <p className="text-xs text-blue-200 mt-0.5 font-medium">
                                 {settings?.schoolName || 'الصفا والمروة الابتدائية'} — العام الدراسي: {settings?.academicYear || '2025-2026'}
                             </p>
@@ -145,8 +145,8 @@ export default function TeacherScheduleTableModal({
                             <Users className="w-5 h-5" />
                         </div>
                         <div>
-                            <div className="text-xs text-gray-500 font-bold">عدد المدرسين</div>
-                            <div className="text-lg font-black text-gray-900">{fullTableData.length} مدرس</div>
+                            <div className="text-xs text-gray-500 font-bold">عدد المعلمين</div>
+                            <div className="text-lg font-black text-gray-900">{fullTableData.length} معلم</div>
                         </div>
                     </div>
 
@@ -175,7 +175,7 @@ export default function TeacherScheduleTableModal({
                             <Clock className="w-5 h-5" />
                         </div>
                         <div>
-                            <div className="text-xs text-gray-500 font-bold">معدل النصاب للمدرس</div>
+                            <div className="text-xs text-gray-500 font-bold">معدل النصاب للمعلم</div>
                             <div className="text-lg font-black text-indigo-800">
                                 {fullTableData.length > 0 ? (totalWeeklyPeriods / fullTableData.length).toFixed(1) : 0} حصة
                             </div>
@@ -193,7 +193,7 @@ export default function TeacherScheduleTableModal({
                                 type="text"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="بحث باسم المدرس أو المادة أو الشعبة..."
+                                placeholder="بحث باسم المعلم أو المادة أو الشعبة..."
                                 className="w-full pl-3 pr-9 py-2 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-shadow"
                             />
                             {searchQuery && (
@@ -228,7 +228,7 @@ export default function TeacherScheduleTableModal({
                             onClick={handleExportExcel}
                             disabled={isExportingExcel}
                             className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-sm rounded-xl shadow-xs hover:shadow-md transition-all disabled:opacity-50 cursor-pointer"
-                            title="تصدير جدول المدرسين كملف Excel (.xlsx)"
+                            title="تصدير جدول المعلمين كملف Excel (.xlsx)"
                         >
                             {isExportingExcel ? (
                                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -243,7 +243,7 @@ export default function TeacherScheduleTableModal({
                             onClick={handleExportWord}
                             disabled={isExportingWord}
                             className="flex items-center gap-2 px-4 py-2.5 bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white font-bold text-sm rounded-xl shadow-xs hover:shadow-md transition-all disabled:opacity-50 cursor-pointer"
-                            title="تصدير جدول المدرسين كملف Word (.docx)"
+                            title="تصدير جدول المعلمين كملف Word (.docx)"
                         >
                             {isExportingWord ? (
                                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -272,7 +272,7 @@ export default function TeacherScheduleTableModal({
                             <thead>
                                 <tr className="bg-linear-to-r from-slate-800 to-indigo-900 text-white font-black">
                                     <th className="py-3 px-3 text-center w-14 border-l border-white/10">التسلسل</th>
-                                    <th className="py-3 px-4 border-l border-white/10 min-w-[180px]">اسم المدرس</th>
+                                    <th className="py-3 px-4 border-l border-white/10 min-w-[180px]">اسم المعلم</th>
                                     <th className="py-3 px-4 border-l border-white/10 min-w-[160px]">الصفوف التي يدرسها</th>
                                     <th className="py-3 px-4 border-l border-white/10 min-w-[160px]">المواد التي يدرسها</th>
                                     <th className="py-3 px-4 border-l border-white/10 min-w-[180px]">الشعب</th>
@@ -332,7 +332,7 @@ export default function TeacherScheduleTableModal({
                                 <tfoot>
                                     <tr className="bg-slate-100 border-t-2 border-slate-300 font-black text-gray-900">
                                         <td colSpan={2} className="py-3 px-4 text-center border-l border-gray-300">
-                                            المجموع: {filteredData.length} مدرس
+                                            المجموع: {filteredData.length} معلم
                                         </td>
                                         <td colSpan={3} className="py-3 px-4 text-left border-l border-gray-300">
                                             إجمالي الحصص الأسبوعية:

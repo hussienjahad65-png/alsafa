@@ -223,7 +223,7 @@ export default function StaffAchievements({ principal, users, classes }: StaffAc
                 </div>
             )}
             <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-6 border-b pb-4 gap-4">
-                <h2 className="text-3xl font-bold text-gray-800">إنجازات الكادر (مدرسين ومرشدين)</h2>
+                <h2 className="text-3xl font-bold text-gray-800">إنجازات الكادر (معلمين ومرشدين)</h2>
                 <button 
                     onClick={handleExportPdf}
                     className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition"
@@ -266,7 +266,7 @@ export default function StaffAchievements({ principal, users, classes }: StaffAc
                         return (
                             <div key={member.id} className="bg-gray-50 p-6 rounded-lg border-l-4 border-cyan-500 shadow-sm">
                                 <h3 className="text-xl font-bold text-gray-800 mb-1">{member.name}</h3>
-                                <p className="text-sm text-gray-500 mb-4">{member.role === 'counselor' ? 'مرشد تربوي' : 'مدرس'}</p>
+                                <p className="text-sm text-gray-500 mb-4">{member.role === 'counselor' ? 'مرشد تربوي' : 'معلم'}</p>
                                 <div className="space-y-3 text-lg">
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-3 text-gray-700">

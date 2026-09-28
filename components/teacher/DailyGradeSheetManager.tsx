@@ -585,7 +585,7 @@ const SheetEditor = ({ sheet, onBack, onSave, settings, classes }: SheetEditorPr
     };
 
     const handleApproveGrades = async () => {
-        if (!window.confirm("سيتم اعتماد الدرجات المحسوبة من هذا السجل وتحديث سجل درجات المدرس الرئيسي. هل أنت متأكد؟")) {
+        if (!window.confirm("سيتم اعتماد الدرجات المحسوبة من هذا السجل وتحديث سجل درجات المعلم الرئيسي. هل أنت متأكد؟")) {
             return;
         }
     
@@ -637,7 +637,7 @@ const SheetEditor = ({ sheet, onBack, onSave, settings, classes }: SheetEditorPr
         
         try {
             await db.ref().update(updates);
-            alert("تم اعتماد الدرجات بنجاح وتحديث سجل المدرس الرئيسي.");
+            alert("تم اعتماد الدرجات بنجاح وتحديث سجل المعلم الرئيسي.");
         } catch (error) {
             console.error("Failed to approve grades:", error);
             alert("حدث خطأ أثناء اعتماد الدرجات.");
@@ -728,7 +728,7 @@ const SheetEditor = ({ sheet, onBack, onSave, settings, classes }: SheetEditorPr
                 <button type="button" onClick={onBack} className="flex items-center gap-2 px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300"><ArrowLeft/> العودة لقائمة السجلات</button>
              </div>
              <div className="bg-white p-4 rounded-lg shadow-lg border mb-4">
-                <p><strong>المدرسة:</strong> {localSheet.schoolName}</p><p><strong>العام الدراسي:</strong> {localSheet.academicYear}</p><p><strong>المدرس:</strong> {localSheet.teacherName}</p><p><strong>المادة:</strong> {localSheet.subjectName}</p><p><strong>الصف:</strong> {localSheet.gradeLevel} / {localSheet.section}</p>
+                <p><strong>المدرسة:</strong> {localSheet.schoolName}</p><p><strong>العام الدراسي:</strong> {localSheet.academicYear}</p><p><strong>المعلم:</strong> {localSheet.teacherName}</p><p><strong>المادة:</strong> {localSheet.subjectName}</p><p><strong>الصف:</strong> {localSheet.gradeLevel} / {localSheet.section}</p>
              </div>
               <div className="bg-white p-4 rounded-lg shadow-lg border mb-4">
                  <h3 className="font-bold text-lg mb-2">إعدادات الأعمدة (الشهر الأول)</h3>

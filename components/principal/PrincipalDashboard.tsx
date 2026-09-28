@@ -97,7 +97,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
 
     const handleQuickExportExcel = () => {
         if (teacherTableData.length === 0) {
-            alert('لا يوجد مدرسين لتصدير جدولهم.');
+            alert('لا يوجد معلمين لتصدير جدولهم.');
             return;
         }
         try {
@@ -113,7 +113,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
 
     const handleQuickExportWord = async () => {
         if (teacherTableData.length === 0) {
-            alert('لا يوجد مدرسين لتصدير جدولهم.');
+            alert('لا يوجد معلمين لتصدير جدولهم.');
             return;
         }
         try {
@@ -129,7 +129,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
 
     const handleExportCommitteesPDF = async () => {
         if (teachersList.length === 0) {
-            alert('لا يوجد مدرسين لتصدير نصاب لجانهم.');
+            alert('لا يوجد معلمين لتصدير نصاب لجانهم.');
             return;
         }
         try {
@@ -148,15 +148,15 @@ export default function PrincipalDashboard({ principal, classes, users, settings
 
     const handleClearAllAssignments = async () => {
         if (teachersList.length === 0) {
-            alert('لا يوجد مدرسين مسجلين في المدرسة.');
+            alert('لا يوجد معلمين مسجلين في المدرسة.');
             return;
         }
 
         const confirmMessage = 
             '⚠️ تحذير إداري:\n\n' +
-            'هل أنت متأكد من رغبتك في مسح وتفريغ جميع المواد والشعب المسندة لكافة المدرسين دفعة واحدة؟\n\n' +
-            '• سيتم تصفير نصاب ومواد جميع المدرسين لتصبح فارغة وجاهزة لإعادة التوزيع.\n' +
-            '• لن يتم حذف أي حساب أو رقم سري للمدرسين.\n\n' +
+            'هل أنت متأكد من رغبتك في مسح وتفريغ جميع المواد والشعب المسندة لكافة المعلمين دفعة واحدة؟\n\n' +
+            '• سيتم تصفير نصاب ومواد جميع المعلمين لتصبح فارغة وجاهزة لإعادة التوزيع.\n' +
+            '• لن يتم حذف أي حساب أو رقم سري للمعلمين.\n\n' +
             'هل ترغب بالمتابعة؟';
 
         if (!window.confirm(confirmMessage)) {
@@ -177,7 +177,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
             });
 
             await db.ref().update(updates);
-            alert('✅ تم تفريغ ومسح جميع المواد والشعب المسندة لكافة المدرسين بنجاح.');
+            alert('✅ تم تفريغ ومسح جميع المواد والشعب المسندة لكافة المعلمين بنجاح.');
         } catch (err) {
             console.error('Error clearing assignments:', err);
             // Fallback to updating individually if batch update encounters any issue
@@ -189,7 +189,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                         await db.ref(`classes/${t.advisorClassId}/advisorTeacherId`).remove().catch(() => {});
                     }
                 }
-                alert('✅ تم تفريغ ومسح جميع المواد والشعب المسندة لكافة المدرسين بنجاح.');
+                alert('✅ تم تفريغ ومسح جميع المواد والشعب المسندة لكافة المعلمين بنجاح.');
             } catch (fallbackErr) {
                 console.error('Fallback clearing assignments error:', fallbackErr);
                 alert('حدث خطأ أثناء تفريغ المواد المسندة. يرجى التحقق من الاتصال.');
@@ -210,7 +210,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
     const handleSaveTeacherName = (userId: string) => {
         const trimmed = editingTeacherNameValue.trim();
         if (!trimmed) {
-            alert('اسم المدرس لا يمكن أن يكون فارغاً.');
+            alert('اسم المعلم لا يمكن أن يكون فارغاً.');
             return;
         }
         updateUser(userId, u => ({ ...u, name: trimmed }));
@@ -345,7 +345,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
     };
     
     const getRoleName = (role: string) => {
-        if (role === 'teacher') return 'مدرس';
+        if (role === 'teacher') return 'معلم';
         if (role === 'counselor') return 'مرشد تربوي';
         if (role === 'assistant') return 'معاون شؤون طلبة';
         return '';
@@ -391,7 +391,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                 >
                     <PlayCircle className="w-12 h-12 text-red-600" />
                     <div>
-                        <h4 className="font-bold text-red-800">طريقة اضافة المدرس مع جولة سريعة</h4>
+                        <h4 className="font-bold text-red-800">طريقة اضافة المعلم مع جولة سريعة</h4>
                         <p className="text-sm text-red-600">شاهد عرض الفيديو التوضيحي للخطوات بالتفصيل.</p>
                     </div>
                 </button>
@@ -418,7 +418,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                                 onChange={(e) => setNewUserRole(e.target.value as any)}
                                 className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
                             >
-                                <option value="teacher">مدرس</option>
+                                <option value="teacher">معلم</option>
                                 <option value="counselor">مرشد تربوي</option>
                                 <option value="assistant">معاون شؤون طلبة</option>
                             </select>
@@ -442,10 +442,10 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                         <div className="bg-linear-to-br from-slate-900 via-indigo-950 to-slate-900 text-white p-4 rounded-xl shadow-md border border-indigo-800/40">
                             <div className="flex items-center gap-2 mb-2 text-cyan-300 font-bold">
                                 <BookOpen className="w-5 h-5" />
-                                <h4 className="text-sm font-black">جدول المدرسين والمواد والحصص</h4>
+                                <h4 className="text-sm font-black">جدول المعلمين والمواد والحصص</h4>
                             </div>
                             <p className="text-xs text-slate-300 mb-3 leading-relaxed">
-                                يتضمن: التسلسل، اسم المدرس، الصفوف، المواد، الشعب، ومجموع الحصص الأسبوعية.
+                                يتضمن: التسلسل، اسم المعلم، الصفوف، المواد، الشعب، ومجموع الحصص الأسبوعية.
                             </p>
                             
                             <div className="space-y-2">
@@ -454,7 +454,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                                     className="w-full flex items-center justify-center gap-2 px-3 py-2.5 bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 text-white font-bold rounded-lg text-xs shadow transition cursor-pointer"
                                 >
                                     <Table className="w-4 h-4 text-cyan-200" />
-                                    <span>عرض ومعاينة جدول المدرسين</span>
+                                    <span>عرض ومعاينة جدول المعلمين</span>
                                 </button>
                                 
                                 <div className="grid grid-cols-2 gap-2 pt-1">
@@ -509,15 +509,15 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                                 <span>إعادة تعيين وتصفير المواد</span>
                             </div>
                             <p className="text-[11px] text-rose-700 leading-relaxed mb-2.5">
-                                تفريغ كافة الحصص والشعب المسندة لجميع المدرسين دفعة واحدة مع الاحتفاظ بحساباتهم.
+                                تفريغ كافة الحصص والشعب المسندة لجميع المعلمين دفعة واحدة مع الاحتفاظ بحساباتهم.
                             </p>
                             <button
                                 onClick={handleClearAllAssignments}
                                 className="w-full flex items-center justify-center gap-1.5 px-3 py-2 bg-rose-600 hover:bg-rose-700 active:bg-rose-800 text-white font-bold rounded-lg text-xs shadow-xs transition cursor-pointer"
-                                title="مسح وتفريغ المواد المسندة لجميع المدرسين"
+                                title="مسح وتفريغ المواد المسندة لجميع المعلمين"
                             >
                                 <RotateCcw className="w-3.5 h-3.5" />
-                                <span>تفريغ المواد المسندة لكافة المدرسين</span>
+                                <span>تفريغ المواد المسندة لكافة المعلمين</span>
                             </button>
                         </div>
                     </div>
@@ -530,13 +530,13 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                             <button
                                 onClick={() => setIsTeacherTableModalOpen(true)}
                                 className="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-800 font-bold text-xs rounded-lg border border-indigo-200 transition shadow-2xs"
-                                title="عرض جدول الحصص والمواد والشعب لجميع المدرسين"
+                                title="عرض جدول الحصص والمواد والشعب لجميع المعلمين"
                             >
                                 <Table className="w-3.5 h-3.5 text-indigo-600" />
                                 <span>جدول الحصص والمواد ({totalWeeklyPeriods} حصة)</span>
                             </button>
                             <div className="flex flex-wrap gap-2 text-sm font-semibold">
-                                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">مدرسين: {teachersCount}</span>
+                                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">معلمين: {teachersCount}</span>
                                 <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded">مرشدين: {counselorsCount}</span>
                                 <span className="bg-amber-100 text-amber-800 px-2 py-1 rounded">معاونين: {assistantsCount}</span>
                             </div>
@@ -553,7 +553,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                                 type="text"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="بحث عن اسم المدرس أو الرمز السري..."
+                                placeholder="بحث عن اسم المعلم أو الرمز السري..."
                                 className="w-full pl-10 pr-10 py-2.5 bg-gray-50 border border-gray-300 rounded-xl text-sm font-semibold text-gray-800 placeholder-gray-400 focus:bg-white focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all"
                             />
                             {searchTerm && (
@@ -595,7 +595,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                                                         if (e.key === 'Escape') handleCancelEditName();
                                                     }}
                                                     className="px-2.5 py-1 text-base font-bold bg-white border-2 border-cyan-500 rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-500 text-gray-900 flex-1"
-                                                    placeholder="اسم المدرس الجديد..."
+                                                    placeholder="اسم المعلم الجديد..."
                                                 />
                                                 <button
                                                     onClick={() => handleSaveTeacherName(t.id)}
@@ -618,7 +618,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                                                 <button
                                                     onClick={() => handleStartEditName(t)}
                                                     className="p-1 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition"
-                                                    title="تعديل اسم المدرس"
+                                                    title="تعديل اسم المعلم"
                                                 >
                                                     <Edit2 size={15} />
                                                 </button>
@@ -678,7 +678,7 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4">
                     <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-4xl h-[80vh] flex flex-col">
                         <h3 className="text-xl font-bold mb-4">
-                            {editingUser.role === 'assistant' ? `تعيين مراحل للمعاون: ${editingUser.name}` : `تعيين مواد للمدرس: ${editingUser.name}`}
+                            {editingUser.role === 'assistant' ? `تعيين مراحل للمعاون: ${editingUser.name}` : `تعيين مواد للمعلم: ${editingUser.name}`}
                         </h3>
                         <div className="flex-1 overflow-y-auto space-y-4 pr-2">
                             {editingUser.role === 'assistant' ? (
@@ -700,10 +700,10 @@ export default function PrincipalDashboard({ principal, classes, users, settings
                                     <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-200 mb-4">
                                         <div className="flex items-center gap-2 text-emerald-900 font-bold mb-1">
                                             <Compass className="w-5 h-5 text-emerald-600" />
-                                            <span>تعيين المدرس كمرشد صف (إرشاد تربوي للشعبة)</span>
+                                            <span>تعيين المعلم كمرشد صف (إرشاد تربوي للشعبة)</span>
                                         </div>
                                         <p className="text-xs text-emerald-700 mb-2">
-                                            وفقاً للتعليمات: تقتصر خيارات تعيين مرشد الصف حصراً على الشعب التي يدرس فيها المدرس.
+                                            وفقاً للتعليمات: تقتصر خيارات تعيين مرشد الصف حصراً على الشعب التي يدرس فيها المعلم.
                                         </p>
                                         <select
                                             value={advisorClassId}

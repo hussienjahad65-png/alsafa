@@ -143,7 +143,7 @@ export default function SubjectSuccessMatrixPDF({ settings, classData, users }: 
                             <GroupHeader label="معدل الفصل الثاني" bgColor="bg-yellow-400" />
                             <GroupHeader label="معدل السعي السنوي" bgColor="bg-yellow-400" />
                             <GroupHeader label="نهاية السنة" bgColor="bg-yellow-400" />
-                            <th className="border-2 border-black p-2 font-black text-xl w-[15%] align-middle" rowSpan={2}><LiftedText>اسم المدرس</LiftedText></th>
+                            <th className="border-2 border-black p-2 font-black text-xl w-[15%] align-middle" rowSpan={2}><LiftedText>اسم المعلم</LiftedText></th>
                         </tr>
                         {/* Sub headers - Each takes exactly 3.5% (total 20 * 3.5 = 70% + 15% + 15% = 100%) */}
                         <tr className="h-32">
@@ -230,7 +230,7 @@ export default function SubjectSuccessMatrixPDF({ settings, classData, users }: 
 
             <footer className="mt-4 flex justify-between items-end px-12 pb-4 font-bold text-lg">
                 <div className="text-center w-64">
-                    <p className="mb-12">توقيع مدرس المادة</p>
+                    <p className="mb-12">توقيع معلم المادة</p>
                     <div className="w-full h-px bg-black opacity-30"></div>
                 </div>
                 <div className="text-center w-64">

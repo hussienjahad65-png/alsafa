@@ -54,7 +54,7 @@ export default function ExamBookletBeforePage({ halls, day, examDate, subject, o
                     <thead className="bg-gray-200">
                         <tr>
                             <th rowSpan={2} className="border-2 border-black p-2">رقم القاعة</th>
-                            <th rowSpan={2} className="border-2 border-black p-2">اسم المدرس</th>
+                            <th rowSpan={2} className="border-2 border-black p-2">اسم المعلم</th>
                             <th rowSpan={2} className="border-2 border-black p-2">رقم القطاع</th>
                             <th colSpan={3} className="border-2 border-black p-2">عدد الدفاتر المستلمة</th>
                             <th rowSpan={2} className="border-2 border-black p-2">التوقيع</th>

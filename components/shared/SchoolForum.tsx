@@ -16,7 +16,7 @@ const RoleBadge = ({ role }: { role: string }) => {
         case 'principal':
             return <span className="bg-red-100 text-red-700 text-xs px-2 py-0.5 rounded-full flex items-center gap-1"><Shield size={10} /> المدير</span>;
         case 'teacher':
-            return <span className="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full flex items-center gap-1"><Users size={10} /> مدرس</span>;
+            return <span className="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full flex items-center gap-1"><Users size={10} /> معلم</span>;
         case 'counselor':
             return <span className="bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full flex items-center gap-1"><UserIcon size={10} /> مرشد</span>;
         case 'student':

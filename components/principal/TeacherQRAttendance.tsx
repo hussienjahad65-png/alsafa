@@ -429,7 +429,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
 
     // Remove an attendance record
     const handleRemoveRecord = async (teacherId: string) => {
-        if (!confirm('هل تريد بالتأكيد إلغاء تسجيل حضور هذا المدرس لهذا اليوم؟')) return;
+        if (!confirm('هل تريد بالتأكيد إلغاء تسجيل حضور هذا المعلم لهذا اليوم؟')) return;
 
         setAttendanceMap(prev => {
             const next = { ...prev };
@@ -523,7 +523,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                             <div style="font-size: 12pt; font-weight: bold; color: #0891b2;">${settings.schoolName}</div>
                         </div>
                         <div style="text-align: center;">
-                            <div style="font-size: 16pt; font-weight: 900; color: #0e7490; margin-bottom: 4px;">سجل الحضور اليومي للمدرسين</div>
+                            <div style="font-size: 16pt; font-weight: 900; color: #0e7490; margin-bottom: 4px;">سجل الحضور اليومي للمعلمين</div>
                             <div style="font-size: 10pt; color: #6b7280;">(عبر منظومة رموز QR الذكية)</div>
                         </div>
                         <div style="text-align: left; line-height: 1.4;">
@@ -546,7 +546,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                         <thead>
                             <tr style="background: #0891b2; color: #ffffff;">
                                 <th style="border: 1px solid #0891b2; padding: 6px 8px; width: 35px; text-align: center;">ت</th>
-                                <th style="border: 1px solid #0891b2; padding: 6px 8px;">اسم المدرس / الكادر</th>
+                                <th style="border: 1px solid #0891b2; padding: 6px 8px;">اسم المعلم / الكادر</th>
                                 <th style="border: 1px solid #0891b2; padding: 6px 8px;">المادة / الاختصاص</th>
                                 <th style="border: 1px solid #0891b2; padding: 6px 8px; text-align: center; width: 100px;">وقت الحضور</th>
                                 <th style="border: 1px solid #0891b2; padding: 6px 8px; text-align: center; width: 85px;">الحالة</th>
@@ -614,7 +614,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
 
             const imgData = canvas.toDataURL('image/png');
             pdf.addImage(imgData, 'PNG', 0, 0, 210, 297, undefined, 'FAST');
-            pdf.save(`سجل_حضور_المدرسين_${selectedDate}.pdf`);
+            pdf.save(`سجل_حضور_المعلمين_${selectedDate}.pdf`);
 
             document.body.removeChild(printContainer);
             setPdfProgress(100);
@@ -631,7 +631,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
     const handleExportTeacherBadgesPDF = async () => {
         const teachersToPrint = teachersList.filter(t => selectedTeacherIdsForBadges.includes(t.id));
         if (teachersToPrint.length === 0) {
-            alert("يرجى تحديد مدرس واحد على الأقل لتوليد بطاقة QR له.");
+            alert("يرجى تحديد معلم واحد على الأقل لتوليد بطاقة QR له.");
             return;
         }
 
@@ -772,11 +772,11 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                 setPdfProgress(Math.round(((pageIdx + 1) / chunks.length) * 100));
             }
 
-            pdf.save(`بطاقات_QR_حضور_المدرسين.pdf`);
+            pdf.save(`بطاقات_QR_حضور_المعلمين.pdf`);
             document.body.removeChild(tempContainer);
         } catch (err: any) {
             console.error("PDF generation error:", err);
-            alert("حدث خطأ أثناء تصدير بطاقات المدرسين: " + (err?.message || "يرجى المحاولة مرة أخرى"));
+            alert("حدث خطأ أثناء تصدير بطاقات المعلمين: " + (err?.message || "يرجى المحاولة مرة أخرى"));
         } finally {
             setIsExportingPDF(false);
             setPdfProgress(0);
@@ -802,7 +802,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                     </div>
                     <div>
                         <h1 className="text-2xl font-black text-gray-900 tracking-tight">
-                            تسجيل الحضور اليومي للمدرسين (QR)
+                            تسجيل الحضور اليومي للمعلمين (QR)
                         </h1>
                         <p className="text-xs md:text-sm text-gray-600 font-bold mt-0.5">
                             مسح فوري بالكاميرا الخلفية المباشرة، سجل الحضور، وتوليد هويات وبطاقات الكادر
@@ -949,7 +949,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                                             الكاميرا الخلفية جاهزة وتعمل باستمرار
                                         </h3>
                                         <p className="text-xs font-bold mt-0.5" style={{ color: '#a7f3d0' }}>
-                                            وجّه بطاقة QR الخاصة بالمدرس نحو الكاميرا لتسجيل الحضور فوراً
+                                            وجّه بطاقة QR الخاصة بالمعلم نحو الكاميرا لتسجيل الحضور فوراً
                                         </p>
                                     </div>
                                 </div>
@@ -1136,7 +1136,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                                         <Clock className="w-12 h-12 text-gray-300 mb-2 stroke-1" />
                                         <p className="text-sm font-bold text-gray-500">لم يسجل أي أستاذ حضوره بعد</p>
                                         <p className="text-xs text-gray-400 mt-1 max-w-xs">
-                                            قم بتوجيه رمز QR الخاص بالمدرس نحو الكاميرا لبدء التسجيل
+                                            قم بتوجيه رمز QR الخاص بالمعلم نحو الكاميرا لبدء التسجيل
                                         </p>
                                     </div>
                                 ) : (
@@ -1242,7 +1242,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                                 <Search className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2" />
                                 <input
                                     type="text"
-                                    placeholder="ابحث باسم المدرس، المادة، أو الكود..."
+                                    placeholder="ابحث باسم المعلم، المادة، أو الكود..."
                                     value={searchQuery}
                                     onChange={(e) => setSearchQuery(e.target.value)}
                                     className="w-full pl-3 pr-10 py-2 border border-gray-300 rounded-xl text-sm font-medium bg-gray-50 outline-none focus:ring-2 focus:ring-cyan-500"
@@ -1334,7 +1334,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                                 <thead className="bg-gray-50 border-b border-gray-200 text-xs font-bold text-gray-600">
                                     <tr>
                                         <th className="p-3.5 w-12 text-center">ت</th>
-                                        <th className="p-3.5">اسم المدرس / الكادر</th>
+                                        <th className="p-3.5">اسم المعلم / الكادر</th>
                                         <th className="p-3.5">المادة / الاختصاص</th>
                                         <th className="p-3.5 text-center">وقت الحضور</th>
                                         <th className="p-3.5 text-center">طريقة التسجيل</th>
@@ -1354,7 +1354,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                                     ) : filteredTeachers.length === 0 ? (
                                         <tr>
                                             <td colSpan={8} className="p-8 text-center text-gray-400">
-                                                لم يتم العثور على أي مدرس يطابق معايير البحث
+                                                لم يتم العثور على أي معلم يطابق معايير البحث
                                             </td>
                                         </tr>
                                     ) : (
@@ -1468,7 +1468,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                             <div>
                                 <h3 className="text-lg font-black text-gray-900 flex items-center gap-2">
                                     <Award className="w-5 h-5 text-cyan-600" />
-                                    <span>توليد وتصدير هويات وبطاقات QR للمدرسين</span>
+                                    <span>توليد وتصدير هويات وبطاقات QR للمعلمين</span>
                                 </h3>
                                 <p className="text-xs text-gray-500 mt-1">
                                     بطاقات تعريفية مجهزة بخطوط تنقيط للقص ✂️ تم تصميمها بحجم قياسي لطباعتها وتوزيعها على الكادر كهوية
@@ -1522,7 +1522,7 @@ export default function TeacherQRAttendance({ principal, settings, users, classe
                                     onClick={handleToggleSelectAllTeachers}
                                     className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg font-bold transition-colors"
                                 >
-                                    {selectedTeacherIdsForBadges.length === teachersList.length ? 'إلغاء تحديد الكل' : 'تحديد جميع المدرسين'}
+                                    {selectedTeacherIdsForBadges.length === teachersList.length ? 'إلغاء تحديد الكل' : 'تحديد جميع المعلمين'}
                                 </button>
                                 <span className="text-xs text-gray-500">
                                     تم تحديد: <strong>{selectedTeacherIdsForBadges.length}</strong> من أصل {teachersList.length}

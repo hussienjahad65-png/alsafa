@@ -80,7 +80,7 @@ export default function YardDutyCollaborationPlatform({ currentUser, users }: { 
     
     const getStatusInfo = (status: YardDutySwapRequest['status']) => {
         switch(status) {
-            case 'pending_teacher': return { text: 'بانتظار موافقة المدرس', color: 'text-yellow-600', icon: <Hourglass size={18} /> };
+            case 'pending_teacher': return { text: 'بانتظار موافقة المعلم', color: 'text-yellow-600', icon: <Hourglass size={18} /> };
             case 'pending_principal': return { text: 'بانتظار موافقة المدير', color: 'text-blue-600', icon: <Hourglass size={18} /> };
             case 'approved': return { text: 'تمت الموافقة', color: 'text-green-600', icon: <Check size={18} /> };
             case 'rejected': return { text: 'تم الرفض', color: 'text-red-600', icon: <X size={18} /> };
@@ -89,8 +89,8 @@ export default function YardDutyCollaborationPlatform({ currentUser, users }: { 
     };
 
     const RequestCard: React.FC<{ request: YardDutySwapRequest; children?: React.ReactNode }> = ({ request, children }) => {
-        const requesterName = usersMap.get(request.requesterId)?.name || 'مدرس غير معروف';
-        const responderName = usersMap.get(request.responderId)?.name || 'مدرس غير معروف';
+        const requesterName = usersMap.get(request.requesterId)?.name || 'معلم غير معروف';
+        const responderName = usersMap.get(request.responderId)?.name || 'معلم غير معروف';
         const statusInfo = getStatusInfo(request.status);
         
         return (

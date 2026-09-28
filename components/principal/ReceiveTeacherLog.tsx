@@ -108,7 +108,7 @@ export default function ReceiveTeacherLog({ principal, classes, settings, users 
     };
 
     const handleBulkPushToTeachers = async () => {
-        if (!confirm("تحذير: سيتم اعتماد وإرسال جميع درجات نصف السنة والدرجة النهائية الموجودة حالياً في جميع الشعب الدراسية إلى كافة سجلات المدرسين المعنيين وتوليد سجلات استلام رسمية لكل مادة. هل أنت متأكد من استمرار المزامنة الكلية؟")) {
+        if (!confirm("تحذير: سيتم اعتماد وإرسال جميع درجات نصف السنة والدرجة النهائية الموجودة حالياً في جميع الشعب الدراسية إلى كافة سجلات المعلمين المعنيين وتوليد سجلات استلام رسمية لكل مادة. هل أنت متأكد من استمرار المزامنة الكلية؟")) {
             return;
         }
 
@@ -189,7 +189,7 @@ export default function ReceiveTeacherLog({ principal, classes, settings, users 
 
             if (Object.keys(updates).length > 0) {
                 await db.ref().update(updates);
-                alert(`تمت المزامنة الكلية بنجاح. تم تحديث وإرسال ${totalUpdates} سجل دراسي لمدرسي المدرسة.`);
+                alert(`تمت المزامنة الكلية بنجاح. تم تحديث وإرسال ${totalUpdates} سجل دراسي لمعلمي المدرسة.`);
             } else {
                 alert("لم يتم العثور على درجات في السجلات الرئيسية لإرسالها.");
             }
@@ -203,7 +203,7 @@ export default function ReceiveTeacherLog({ principal, classes, settings, users 
 
     const handleApproveGrades = async (semester: 1 | 2) => {
         const semesterLabel = semester === 1 ? 'الفصل الأول' : 'الفصل الثاني';
-        if (!confirm(`هل أنت متأكد من اعتماد درجات ${semesterLabel}؟ سيتم تحديث سجلات الطلاب في الشعب بناءً على آخر السجلات المستلمة من المدرسين.`)) {
+        if (!confirm(`هل أنت متأكد من اعتماد درجات ${semesterLabel}؟ سيتم تحديث سجلات الطلاب في الشعب بناءً على آخر السجلات المستلمة من المعلمين.`)) {
             return;
         }
 
@@ -306,7 +306,7 @@ export default function ReceiveTeacherLog({ principal, classes, settings, users 
         setSelectedSubmission(submission);
     };
     
-    const getTeacherName = (teacherId: string) => users.find(u => u.id === teacherId)?.name || 'مدرس غير معروف';
+    const getTeacherName = (teacherId: string) => users.find(u => u.id === teacherId)?.name || 'معلم غير معروف';
     const getClassName = (classId: string) => {
         const cls = classes.find(c => c.id === classId);
         return cls ? `${cls.stage} - ${cls.section}` : 'شعبة محذوفة';
@@ -335,7 +335,7 @@ export default function ReceiveTeacherLog({ principal, classes, settings, users 
         if (!classData || !teacher) {
             return (
                 <div className="bg-white p-8 rounded-xl shadow-lg text-center">
-                    <p className="text-red-500">خطأ: لم يتم العثور على بيانات الصف أو المدرس لهذا السجل.</p>
+                    <p className="text-red-500">خطأ: لم يتم العثور على بيانات الصف أو المعلم لهذا السجل.</p>
                     <button onClick={() => setSelectedSubmission(null)} className="mt-4 px-4 py-2 bg-gray-300 rounded-lg flex items-center gap-2 mx-auto">
                         <ArrowLeft />
                         العودة
@@ -381,22 +381,22 @@ export default function ReceiveTeacherLog({ principal, classes, settings, users 
             {isSyncingAll && (
                 <div className="fixed inset-0 bg-black/60 z-[100] flex flex-col items-center justify-center text-white">
                     <Loader2 className="w-16 h-16 animate-spin mb-4" />
-                    <p className="text-xl font-bold">جاري مزامنة درجات السجل الرئيسي مع جميع المدرسين...</p>
+                    <p className="text-xl font-bold">جاري مزامنة درجات السجل الرئيسي مع جميع المعلمين...</p>
                     <p className="text-sm opacity-70">يرجى عدم إغلاق المتصفح حتى انتهاء العملية</p>
                 </div>
             )}
 
             <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 pb-4 border-b">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 md:mb-0">استلام سجلات المدرسين</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4 md:mb-0">استلام سجلات المعلمين</h2>
                 <div className="flex items-center gap-2 w-full md:w-auto">
-                     <label htmlFor="teacher-filter" className="font-semibold text-gray-700 whitespace-nowrap">فلترة بالمدرس:</label>
+                     <label htmlFor="teacher-filter" className="font-semibold text-gray-700 whitespace-nowrap">فلترة بالمعلم:</label>
                     <select 
                         id="teacher-filter"
                         onChange={e => setSelectedTeacherId(e.target.value)} 
                         value={selectedTeacherId}
                         className="w-full max-w-xs px-4 py-2 border border-gray-300 rounded-lg bg-white"
                     >
-                        <option value="">-- كل المدرسين --</option>
+                        <option value="">-- كل المعلمين --</option>
                         {teachers.map(t => <option key={t.id} value={t.id}>{t.name}</option>)}
                     </select>
                 </div>
@@ -439,7 +439,7 @@ export default function ReceiveTeacherLog({ principal, classes, settings, users 
                             <div className="flex items-center justify-between p-3 bg-white rounded-lg border shadow-sm">
                                 <div>
                                     <p className="font-bold text-gray-800">إيقاف الإرسال تماماً</p>
-                                    <p className="text-xs text-gray-500">يمنع إرسال أي سجلات من جميع المدرسين</p>
+                                    <p className="text-xs text-gray-500">يمنع إرسال أي سجلات من جميع المعلمين</p>
                                 </div>
                                 <button 
                                     onClick={() => handleToggleLock('lockAllSubmissions')}
@@ -530,7 +530,7 @@ export default function ReceiveTeacherLog({ principal, classes, settings, users 
                 <div className="space-y-6">
                     <div className="bg-cyan-50 p-6 rounded-xl border border-cyan-200">
                         <h3 className="text-lg font-bold text-cyan-800 mb-4 flex items-center gap-2">
-                            <CheckCircle size={18} /> اعتماد الدرجات النهائية (من المدرسين للرئيسي)
+                            <CheckCircle size={18} /> اعتماد الدرجات النهائية (من المعلمين للرئيسي)
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <button 
@@ -554,10 +554,10 @@ export default function ReceiveTeacherLog({ principal, classes, settings, users 
 
                     <div className="bg-amber-50 p-6 rounded-xl border border-amber-200">
                         <h3 className="text-lg font-bold text-amber-800 mb-2 flex items-center gap-2">
-                            <Zap size={18} /> مزامنة كل السجلات (من الرئيسي للمدرسين)
+                            <Zap size={18} /> مزامنة كل السجلات (من الرئيسي للمعلمين)
                         </h3>
                         <p className="text-xs text-amber-700 mb-4 leading-relaxed">
-                            هذا الخيار يرسل درجات نصف السنة والدرجة النهائية المثبتة في سجلات الشعب مباشرة إلى جميع سجلات المدرسين دفعة واحدة.
+                            هذا الخيار يرسل درجات نصف السنة والدرجة النهائية المثبتة في سجلات الشعب مباشرة إلى جميع سجلات المعلمين دفعة واحدة.
                         </p>
                         <button 
                             onClick={handleBulkPushToTeachers}

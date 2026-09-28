@@ -158,7 +158,7 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
                     return {
                         ...parsed,
                         schoolName: 'الصفا والمروة الابتدائية',
-                        principalName: 'ثامر جاسم محمد حبل الحجامي',
+                        principalName: 'محمد حسن هادي',
                         schoolLevel: 'ابتدائية',
                     };
                 }
@@ -207,7 +207,7 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
     const createDefaultSettingsForPrincipal = (principal: CurrentUser): SchoolSettings => {
         return {
             schoolName: principal.schoolName || 'الصفا والمروة الابتدائية',
-            principalName: 'ثامر جاسم محمد حبل الحجامي',
+            principalName: 'محمد حسن هادي',
             academicYear: "2025-2026",
             directorate: '',
             supplementarySubjectsCount: 3,
@@ -270,14 +270,14 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
                     const updatedData: SchoolSettings = {
                         ...data,
                         schoolName: 'الصفا والمروة الابتدائية',
-                        principalName: 'ثامر جاسم محمد حبل الحجامي',
+                        principalName: 'محمد حسن هادي',
                         schoolLevel: 'ابتدائية',
                     };
                     setSettings(updatedData);
-                    if (isPrincipal && (data.schoolLevel !== 'ابتدائية' || data.principalName !== 'ثامر جاسم محمد حبل الحجامي' || data.schoolName !== 'الصفا والمروة الابتدائية')) {
+                    if (isPrincipal && (data.schoolLevel !== 'ابتدائية' || data.principalName !== 'محمد حسن هادي' || data.schoolName !== 'الصفا والمروة الابتدائية')) {
                         settingsRef.update({
                             schoolName: 'الصفا والمروة الابتدائية',
-                            principalName: 'ثامر جاسم محمد حبل الحجامي',
+                            principalName: 'محمد حسن هادي',
                             schoolLevel: 'ابتدائية',
                         }).catch(() => {});
                     }
@@ -431,7 +431,7 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
             if (Object.keys(updates).length > 0) {
                 try {
                     await db.ref().update(updates);
-                    alert('تم تحديث هيكل المواد الدراسية وتعيينات المدرسين تلقائياً. سيتم تحديث الصفحة.');
+                    alert('تم تحديث هيكل المواد الدراسية وتعيينات المعلمين تلقائياً. سيتم تحديث الصفحة.');
                     window.location.reload();
                 } catch (e) {
                     console.error("Migration failed:", e);
@@ -451,7 +451,7 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
             return {
                 ...settings,
                 schoolName: 'الصفا والمروة الابتدائية',
-                principalName: 'ثامر جاسم محمد حبل الحجامي',
+                principalName: 'محمد حسن هادي',
                 schoolLevel: 'ابتدائية' as const,
             };
         }
@@ -459,14 +459,14 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
             return {
                 ...settings,
                 schoolName: 'الصفا والمروة الابتدائية',
-                principalName: 'ثامر جاسم محمد حبل الحجامي',
+                principalName: 'محمد حسن هادي',
                 schoolLevel: 'ابتدائية' as const,
             };
         }
         return {
             ...settings,
             schoolName: 'الصفا والمروة الابتدائية',
-            principalName: 'ثامر جاسم محمد حبل الحجامي',
+            principalName: 'محمد حسن هادي',
             schoolLevel: 'ابتدائية' as const,
         };
     }, [settings, effectiveCurrentUser, isPrincipal, isTeacher, isAssistant, users]);
@@ -504,7 +504,7 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
         { view: 'export_results', icon: Printer, label: 'النتائج الشهرية' },
         { view: 'exam_results_exporter', icon: Printer, label: 'النتائج الامتحانية' },
         { view: 'statistics', icon: BarChart, label: 'التقارير والإحصاءات' },
-        { view: 'teacher_log_exporter', icon: ClipboardList, label: 'سجل المدرس' },
+        { view: 'teacher_log_exporter', icon: ClipboardList, label: 'سجل المعلم' },
         { view: 'admin_log_exporter', icon: Archive, label: 'السجل العام' },
         { view: 'primary_school_log', icon: BookText, label: 'درجات الابتدائية' },
     ];
@@ -693,8 +693,8 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
         { view: 'home', icon: Home, label: 'الرئيسية / الشعب' },
         { view: 'weekly_schedule', icon: CalendarClock, label: 'الجدول المدرسي الأسبوعي' },
         { view: 'staff_kpis', icon: Activity, label: 'مراقبة أداء الكادر' },
-        { view: 'teacher_qr_attendance', icon: UserCheck, label: 'حضور المدرسين (QR)' },
-        { view: 'principal_dashboard', icon: User, label: 'إدارة المدرسين' },
+        { view: 'teacher_qr_attendance', icon: UserCheck, label: 'حضور المعلمين (QR)' },
+        { view: 'principal_dashboard', icon: User, label: 'إدارة المعلمين' },
         { view: 'staff_achievements', icon: BarChart, label: 'إنجازات الكادر' },
         { view: 'school_forum', icon: MessageCircle, label: 'منتدى المدرسة' },
         { view: 'student_management', icon: Users, label: 'إدارة الطلاب والاشتراكات' },
@@ -712,7 +712,7 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
 
     const navForAssistant: NavItem[] = [
         { view: 'home', icon: Home, label: 'الرئيسية / الشعب' },
-        { view: 'teacher_qr_attendance', icon: UserCheck, label: 'حضور المدرسين (QR)' },
+        { view: 'teacher_qr_attendance', icon: UserCheck, label: 'حضور المعلمين (QR)' },
         { view: 'weekly_schedule', icon: CalendarClock, label: 'الجدول المدرسي الأسبوعي' },
         { view: 'textbook_distribution', icon: BookOpenCheck, label: 'تسليم واستلام الكتب' },
         { view: 'student_grades', icon: GraduationCap, label: 'نتائج الطلاب' },
@@ -736,7 +736,7 @@ export default function MainApp({ currentUser, onLogout, users, addUser, updateU
 
     const getRoleName = (role: string) => {
         if (role === 'principal') return 'مدير';
-        if (role === 'teacher') return 'مدرس';
+        if (role === 'teacher') return 'معلم';
         if (role === 'assistant') return 'معاون شؤون طلبة';
         return role;
     };

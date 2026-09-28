@@ -660,7 +660,7 @@ export default function GradeSheet({ classData, settings, allClasses }: GradeShe
 
     // NEW: Push Master Grades to Teacher Sheets
     const handlePushToTeachers = async () => {
-        if (!confirm("هل أنت متأكد من اعتماد وإرسال كافة الدرجات (معدلات الفصول، نصف السنة، السعي السنوي، والامتحان النهائي) الحالية في هذا السجل إلى كافة سجلات المدرسين وتوليد سجلات استلام رسمية؟")) {
+        if (!confirm("هل أنت متأكد من اعتماد وإرسال كافة الدرجات (معدلات الفصول، نصف السنة، السعي السنوي، والامتحان النهائي) الحالية في هذا السجل إلى كافة سجلات المعلمين وتوليد سجلات استلام رسمية؟")) {
             return;
         }
 
@@ -743,7 +743,7 @@ export default function GradeSheet({ classData, settings, allClasses }: GradeShe
 
             if (Object.keys(updates).length > 0) {
                 await db.ref().update(updates);
-                alert("تم اعتماد وإرسال الدرجات بنجاح إلى كافة سجلات المدرسين وتم تحديث السجلات المستلمة.");
+                alert("تم اعتماد وإرسال الدرجات بنجاح إلى كافة سجلات المعلمين وتم تحديث السجلات المستلمة.");
             } else {
                 alert("لا توجد درجات مكتملة لإرسالها.");
             }
@@ -789,7 +789,7 @@ export default function GradeSheet({ classData, settings, allClasses }: GradeShe
             {isPushing && (
                 <div className="fixed inset-0 bg-black/60 z-[100] flex flex-col items-center justify-center text-white">
                     <Loader2 className="w-16 h-16 animate-spin mb-4" />
-                    <p className="text-xl font-bold">جاري اعتماد وإرسال الدرجات للمدرسين وتوليد السجلات...</p>
+                    <p className="text-xl font-bold">جاري اعتماد وإرسال الدرجات للمعلمين وتوليد السجلات...</p>
                 </div>
             )}
 
@@ -901,10 +901,10 @@ export default function GradeSheet({ classData, settings, allClasses }: GradeShe
                         onClick={handlePushToTeachers} 
                         disabled={isPushing}
                         className="flex items-center gap-2 px-3.5 py-2 bg-indigo-700 text-white font-bold rounded-lg hover:bg-indigo-800 shadow transition-all transform hover:scale-105 text-sm"
-                        title="إرسال درجات نصف السنة والنهائي من هذا السجل إلى سجلات المدرسين مباشرة"
+                        title="إرسال درجات نصف السنة والنهائي من هذا السجل إلى سجلات المعلمين مباشرة"
                     >
                         <ShieldCheck size={18} />
-                        <span>اعتماد وإرسال للمدرسين</span>
+                        <span>اعتماد وإرسال للمعلمين</span>
                     </button>
                     <button 
                         onClick={handleExportWord} 

@@ -111,7 +111,7 @@ const MonthlyStatsPage = ({ settings, classData, students, subjects, startIndex,
             {showStats && (
                 <div className="mt-8 flex justify-around items-end">
                     <div className="text-center">
-                        <p className="font-black text-xl text-cyan-900 mb-12">توقيع مدرس المادة</p>
+                        <p className="font-black text-xl text-cyan-900 mb-12">توقيع معلم المادة</p>
                         <div className="w-56 border-t-2 border-cyan-900"></div>
                     </div>
                     <div className="text-center relative">
@@ -285,7 +285,7 @@ export default function MonthlyResultsExporter({ classes, settings, users }: Mon
             return calc.finalGradeWithDecision;
         }
 
-        // المفاتيح المباشرة (شهر 1، شهر 2) تستمر بالسحب من سجلات المدرسين المستلمة
+        // المفاتيح المباشرة (شهر 1، شهر 2) تستمر بالسحب من سجلات المعلمين المستلمة
         const grade = tg?.[resultKey as keyof TeacherSubjectGrade];
         return (grade !== undefined && grade !== null) ? Number(grade) : null;
     };
@@ -932,7 +932,7 @@ export default function MonthlyResultsExporter({ classes, settings, users }: Mon
             
             <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-800 p-4 mb-6 rounded-md" role="alert">
                 <p className="font-bold">تنبيه مهم:</p>
-                <p>نتائج الامتحانات الشهرية تعتمد على السجلات المرسلة من قبل المدرسين والمستلمة من قبل الادارة.</p>
+                <p>نتائج الامتحانات الشهرية تعتمد على السجلات المرسلة من قبل المعلمين والمستلمة من قبل الادارة.</p>
             </div>
             
             {isExporting && (

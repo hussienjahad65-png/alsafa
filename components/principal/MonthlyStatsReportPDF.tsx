@@ -99,7 +99,7 @@ export default function MonthlyStatsReportPDF({ settings, classData, students, s
             
             {detailedStats && (
                 <footer className="mt-auto pt-4 flex justify-between items-end font-bold text-lg">
-                    <p>اسم المدرس: ..............................</p>
+                    <p>اسم المعلم: ..............................</p>
                     <p>مدير المدرسة: {settings.principalName}</p>
                 </footer>
             )}

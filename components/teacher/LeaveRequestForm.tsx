@@ -21,7 +21,7 @@ const TOTAL_LEAVE_DAYS = 7;
 export default function LeaveRequestForm({ teacher, settings, classes }: LeaveRequestFormProps) {
     
     const [requestBody, setRequestBody] = useState(() => {
-        const teacherTerm = settings.schoolLevel === 'ابتدائية' ? 'المعلم/ة' : 'المدرس/ة';
+        const teacherTerm = settings.schoolLevel === 'ابتدائية' ? 'المعلم/ة' : 'المعلم/ة';
         
         const getSpecialization = () => {
             const specializations = new Set<string>();

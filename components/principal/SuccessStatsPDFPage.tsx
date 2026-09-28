@@ -84,7 +84,7 @@ export default function SuccessStatsPDFPage({ settings, monthLabel, data, pageNu
                             <tr className="bg-gradient-to-l from-indigo-600 to-blue-600 text-white">
                                 <th className={tableHeaderClass + " w-[20%] text-white bg-transparent"}>المادة</th>
                                 <th className={tableHeaderClass + " w-[8%] text-white bg-transparent"}>الشعبة</th>
-                                <th className={tableHeaderClass + " w-[20%] text-white bg-transparent"}>مدرس المادة</th>
+                                <th className={tableHeaderClass + " w-[20%] text-white bg-transparent"}>معلم المادة</th>
                                 <th className={tableHeaderClass + " w-[10%] text-white bg-transparent"}>العدد الكلي</th>
                                 <th className={tableHeaderClass + " w-[10%] text-white bg-transparent"}>عدد الناجحين</th>
                                 <th className={tableHeaderClass + " w-[10%] text-white bg-transparent"}>عدد الراسبين</th>

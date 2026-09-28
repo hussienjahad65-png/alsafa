@@ -406,7 +406,7 @@ export default function TeacherDisciplineEvaluator({ teacher, classes, settings 
             subjectName: currentSubject?.name || 'عام',
             teacherId: teacher.id,
             teacherName: teacher.name,
-            teacherRole: 'مدرس المادة',
+            teacherRole: 'معلم المادة',
             criterionId: criterion?.id || 'custom',
             criterionTitle,
             pointsDeducted,
@@ -542,11 +542,11 @@ export default function TeacherDisciplineEvaluator({ teacher, classes, settings 
                         <div className="flex items-center gap-2">
                             <h1 className="text-xl sm:text-2xl font-black">نظام انضباط وتقييم سلوك الطلاب</h1>
                             <span className="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs px-2.5 py-0.5 rounded-full font-bold">
-                                خاص بشعب المدرس
+                                خاص بشعب المعلم
                             </span>
                         </div>
                         <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
-                            رصد المخالفات وفق معايير معاونية شؤون الطلبة، متابعة سجل مخالفات باقي المدرسين، والاطلاع على أرشيف الفرص والتقارير الرسمية.
+                            رصد المخالفات وفق معايير معاونية شؤون الطلبة، متابعة سجل مخالفات باقي المعلمين، والاطلاع على أرشيف الفرص والتقارير الرسمية.
                         </p>
                     </div>
                 </div>
@@ -736,7 +736,7 @@ export default function TeacherDisciplineEvaluator({ teacher, classes, settings 
                             لم يتم إسناد أي شعبة لتدريسك بعد
                         </h3>
                         <p className="text-xs sm:text-sm text-slate-600 max-w-lg mx-auto leading-relaxed">
-                            عزيزي المدرس، لم تسند إليك إدارة المدرسة أي صفوف أو مواد دراسية حتى الآن. تم تعطيل أزرار وقوائم اختيار الشعب لحين قيام الإدارة بتوزيع الحصص والشعب عليك.
+                            عزيزي المعلم، لم تسند إليك إدارة المدرسة أي صفوف أو مواد دراسية حتى الآن. تم تعطيل أزرار وقوائم اختيار الشعب لحين قيام الإدارة بتوزيع الحصص والشعب عليك.
                         </p>
                     </div>
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100/90 text-amber-900 text-xs font-bold rounded-xl border border-amber-300">
@@ -1145,7 +1145,7 @@ export default function TeacherDisciplineEvaluator({ teacher, classes, settings 
                                     <div className="flex flex-wrap items-center justify-between gap-2">
                                         <h4 className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
                                             <Clock size={14} className="text-indigo-600" />
-                                            <span>سجل مخالفات الطالب التراكمية من كافة المدرسين:</span>
+                                            <span>سجل مخالفات الطالب التراكمية من كافة المعلمين:</span>
                                         </h4>
                                         <span className="text-[11px] text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded-lg font-bold">
                                             إجمالي الخصم التراكمي: -{getStudentDisciplineData(selectedStudent.id).totalDeductions} نقاط
@@ -1190,7 +1190,7 @@ export default function TeacherDisciplineEvaluator({ teacher, classes, settings 
                                                         <div className="flex items-center gap-2 text-[11px] text-slate-600 font-medium">
                                                             <span>المادة: <b>{rec.subjectName || 'عام'}</b></span>
                                                             <span>•</span>
-                                                            <span>المدرس: <b>{rec.teacherName}</b></span>
+                                                            <span>المعلم: <b>{rec.teacherName}</b></span>
                                                             {rec.status === 'archived' && (
                                                                 <span className="text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold mr-auto">
                                                                     (مؤرشفة - تصفير سلوك)
@@ -1208,7 +1208,7 @@ export default function TeacherDisciplineEvaluator({ teacher, classes, settings 
                                             })
                                         ) : (
                                             <div className="text-center py-6 bg-slate-50 rounded-xl border border-dashed text-xs text-slate-500">
-                                                لا توجد أي مخالفات مسجلة على هذا الطالب من أي مدرس.
+                                                لا توجد أي مخالفات مسجلة على هذا الطالب من أي معلم.
                                             </div>
                                         )}
                                     </div>
@@ -1221,7 +1221,7 @@ export default function TeacherDisciplineEvaluator({ teacher, classes, settings 
                                 </div>
                                 <h3 className="font-bold text-slate-800 text-base">اختر طالباً من القائمة للبدء</h3>
                                 <p className="text-xs text-slate-500 max-w-sm mx-auto leading-relaxed">
-                                    بمجرد النقر على اسم الطالب، ستظهر صورته وسجل المخالفات المسجلة له من باقي المدرسين، مع إمكانية تأشير مخالفة يومية وخصم النقاط تراكمياً.
+                                    بمجرد النقر على اسم الطالب، ستظهر صورته وسجل المخالفات المسجلة له من باقي المعلمين، مع إمكانية تأشير مخالفة يومية وخصم النقاط تراكمياً.
                                 </p>
                             </div>
                         )}
@@ -1236,7 +1236,7 @@ export default function TeacherDisciplineEvaluator({ teacher, classes, settings 
                         <div>
                             <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
                                 <Sparkles className="w-5 h-5 text-amber-500" />
-                                <span>أرشيف الفرص الجديدة وتصفير المخالفات السلوكية (لشعب المدرس)</span>
+                                <span>أرشيف الفرص الجديدة وتصفير المخالفات السلوكية (لشعب المعلم)</span>
                             </h3>
                             <p className="text-xs text-slate-500 mt-1">
                                 قائمة الطلاب في الشعب المخصصة لك والذين حصلوا على فرصة ثانية وتصفير لمخالفاتهم السابقة بقرار من إدارة المدرسة

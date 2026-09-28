@@ -197,7 +197,7 @@ export default function SubjectSuccessStatsPDF({ settings, classes, subjectName,
 
             <footer className="mt-12 flex justify-between items-end font-bold text-xl px-4 flex-shrink-0">
                 <div className="text-center w-64">
-                    <p className="mb-16">توقيع مدرس المادة</p>
+                    <p className="mb-16">توقيع معلم المادة</p>
                     <div className="w-full h-px bg-black opacity-30"></div>
                 </div>
                 <div className="text-center w-64">

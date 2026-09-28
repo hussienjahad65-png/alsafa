@@ -236,7 +236,7 @@ export default function ScheduleGenerator({ currentUser, users, classes, setting
             alert("يرجى إكمال توليد الجدول ليوم واحد على الأقل قبل النشر.");
             return;
         }
-        if (window.confirm("هل أنت متأكد من نشر هذا الجدول؟ سيصبح مرئياً لجميع المدرسين وسيستبدل أي جدول منشور سابقاً.")) {
+        if (window.confirm("هل أنت متأكد من نشر هذا الجدول؟ سيصبح مرئياً لجميع المعلمين وسيستبدل أي جدول منشور سابقاً.")) {
             setIsPublishing(true);
             db.ref(`schedules/${currentUser.id}`).set(schedule)
                 .then(() => {
@@ -260,7 +260,7 @@ export default function ScheduleGenerator({ currentUser, users, classes, setting
     };
     
     const handleResetSchedule = () => {
-        if (window.confirm("تحذير: سيتم حذف الجدول الحالي بالكامل من الخادم ومن ذاكرة المتصفح، بما في ذلك الجدول المنشور للطلاب والمدرسين. لا يمكن التراجع عن هذا الإجراء. هل أنت متأكد من المتابعة؟")) {
+        if (window.confirm("تحذير: سيتم حذف الجدول الحالي بالكامل من الخادم ومن ذاكرة المتصفح، بما في ذلك الجدول المنشور للطلاب والمعلمين. لا يمكن التراجع عن هذا الإجراء. هل أنت متأكد من المتابعة؟")) {
             setSchedule({});
             setHistory([]);
             setGenerationStatus(initialGenerationStatus);
@@ -317,7 +317,7 @@ export default function ScheduleGenerator({ currentUser, users, classes, setting
             </div>
 
              <div className="border-t pt-8">
-                <h3 className="text-xl font-bold mb-4 text-center">الخطوة 2: إدارة تفرغ المدرسين (اختياري)</h3>
+                <h3 className="text-xl font-bold mb-4 text-center">الخطوة 2: إدارة تفرغ المعلمين (اختياري)</h3>
                 <div className="space-y-3 max-w-2xl mx-auto p-4 border rounded-lg shadow-inner bg-gray-50">
                     {teachers.map(teacher => (
                         <div key={teacher.id} className="p-3 bg-white rounded-lg shadow-sm">

@@ -96,7 +96,7 @@ export default function AdminDashboard({ currentUser, users, addUser, updateUser
     const handleTogglePrincipalAccess = async (principal: User) => {
         const isDisabling = !principal.disabled;
         const actionText = isDisabling ? "تعطيل" : "تمكين";
-        const confirmationMessage = `هل أنت متأكد من ${actionText} حساب المدير ${principal.name}؟\nسيتم ${actionText} دخول جميع المدرسين المرتبطين بهذه المدرسة.`;
+        const confirmationMessage = `هل أنت متأكد من ${actionText} حساب المدير ${principal.name}؟\nسيتم ${actionText} دخول جميع المعلمين المرتبطين بهذه المدرسة.`;
 
         if (!window.confirm(confirmationMessage)) {
             return;

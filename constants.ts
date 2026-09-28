@@ -14,7 +14,7 @@ export const GOVERNORATES = [
 
 export const DEFAULT_SCHOOL_SETTINGS: SchoolSettings = {
     schoolName: 'الصفا والمروة الابتدائية',
-    principalName: 'ثامر جاسم محمد حبل الحجامي',
+    principalName: 'محمد حسن هادي',
     academicYear: '2025-2026',
     directorate: '',
     supplementarySubjectsCount: 3,
@@ -283,7 +283,7 @@ export const DEFAULT_DISCIPLINE_CRITERIA: import('./types.ts').DisciplineCriteri
     {
         id: 'crit_class_disruption',
         title: 'مشاغبة داخل الصف',
-        description: 'إثارة الفوضى، مقاطعة المدرس، أو التحدث الجانبي أثناء الشرح',
+        description: 'إثارة الفوضى، مقاطعة المعلم، أو التحدث الجانبي أثناء الشرح',
         deductionPoints: 1,
         isDefault: true,
         isActive: true,
@@ -391,7 +391,7 @@ export const DEFAULT_DISCIPLINE_CRITERIA: import('./types.ts').DisciplineCriteri
     {
         id: 'crit_disrespect_staff',
         title: 'عدم احترام الهيئة التعليمية والإدارية',
-        description: 'الرد غير اللائق أو مخالفة تعليمات المدرسين والإداريين',
+        description: 'الرد غير اللائق أو مخالفة تعليمات المعلمين والإداريين',
         deductionPoints: 1,
         isDefault: true,
         isActive: true,

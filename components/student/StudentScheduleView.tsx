@@ -144,7 +144,7 @@ export default function StudentScheduleView({ currentUser, scheduleData: propSch
                         const a = assign as any;
                         grid[day][p] = {
                             subject: a.subject,
-                            teacher: a.teacher || 'مدرس المادة'
+                            teacher: a.teacher || 'معلم المادة'
                         };
                         totalCount++;
                         subjectCounts[a.subject] = (subjectCounts[a.subject] || 0) + 1;

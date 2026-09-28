@@ -124,7 +124,7 @@ export default function TeacherGradeSheet({ classData, teacher, settings, isRead
     const isPrimary5_6 = isPrimary && ['الخامس ابتدائي', 'السادس ابتدائي'].includes(classData.stage);
     const maxGrade = isPrimary1_4 ? 10 : 100;
     const studentLabel = isPrimary ? 'التلميذ' : 'الطالب';
-    const teacherLabel = isPrimary ? 'المعلم' : 'المدرس';
+    const teacherLabel = isPrimary ? 'المعلم' : 'المعلم';
 
     // Check submission locks from settings
     const isGlobalLocked = !!settings.lockAllSubmissions;

@@ -1179,7 +1179,7 @@ export default function BehaviorManager({ principal, settings, classes }: Behavi
                                             <div className="flex flex-wrap items-center justify-between gap-2 border-b pb-3">
                                                 <div className="flex items-center gap-2 text-slate-800 font-bold text-xs sm:text-sm">
                                                     <Clock className="w-4 h-4 text-indigo-600" />
-                                                    <h4>سجل المخالفات التراكمية بحق الطالب (من كافة المدرسين والإدارة)</h4>
+                                                    <h4>سجل المخالفات التراكمية بحق الطالب (من كافة المعلمين والإدارة)</h4>
                                                 </div>
                                                 <span className="text-xs text-red-700 bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-lg font-bold">
                                                     إجمالي الخصم التراكمي: -{getStudentData(selectedStudentId).totalDeductions} نقاط
@@ -1250,7 +1250,7 @@ export default function BehaviorManager({ principal, settings, classes }: Behavi
                                     <div className="bg-slate-50 border-2 border-dashed border-slate-200 rounded-3xl p-12 text-center space-y-2">
                                         <ShieldBan className="w-12 h-12 text-slate-300 mx-auto" />
                                         <p className="font-bold text-slate-700 text-sm">حدد طالباً من القائمة للبدء بالتقييم أو إصدار تقرير</p>
-                                        <p className="text-xs text-slate-400">تظهر المخالفات المسجلة من جميع مدرسي المواد تلقائياً في هذا السجل فور رصدها.</p>
+                                        <p className="text-xs text-slate-400">تظهر المخالفات المسجلة من جميع معلمي المواد تلقائياً في هذا السجل فور رصدها.</p>
                                     </div>
                                 )}
                             </div>
@@ -1317,7 +1317,7 @@ export default function BehaviorManager({ principal, settings, classes }: Behavi
                                                 {activeRecords[activeRecords.length - 1]?.criterionTitle || 'مخالفة انضباط'}
                                             </p>
                                             <p className="text-[10px] text-slate-400">
-                                                بواسطة: {activeRecords[activeRecords.length - 1]?.teacherName || 'المدرس'} ({activeRecords[activeRecords.length - 1]?.subjectName || 'عام'})
+                                                بواسطة: {activeRecords[activeRecords.length - 1]?.teacherName || 'المعلم'} ({activeRecords[activeRecords.length - 1]?.subjectName || 'عام'})
                                             </p>
                                         </div>
 
@@ -1410,7 +1410,7 @@ export default function BehaviorManager({ principal, settings, classes }: Behavi
                                     معايير السلوك والانضباط المدرسي ({disciplineSettings.criteria?.length || 0})
                                 </h3>
                                 <p className="text-xs text-slate-500">
-                                    هذه المعايير تظهر لجميع المدرسين في بواباتهم لتقييم الطلبة يومياً بسهولة
+                                    هذه المعايير تظهر لجميع المعلمين في بواباتهم لتقييم الطلبة يومياً بسهولة
                                 </p>
                             </div>
 
@@ -1481,7 +1481,7 @@ export default function BehaviorManager({ principal, settings, classes }: Behavi
                                             type="text"
                                             value={newCritDesc}
                                             onChange={e => setNewCritDesc(e.target.value)}
-                                            placeholder="وصف مختصر لمساعدة المدرسين على تصنيف السلوك بدقة..."
+                                            placeholder="وصف مختصر لمساعدة المعلمين على تصنيف السلوك بدقة..."
                                             className="w-full p-2.5 border rounded-xl text-xs sm:text-sm bg-white focus:ring-2 focus:ring-indigo-500"
                                         />
                                     </div>
@@ -1659,7 +1659,7 @@ export default function BehaviorManager({ principal, settings, classes }: Behavi
 
                         <p className="text-xs text-slate-600 leading-relaxed">
                             سيتم أرشفة جميع المخالفات النشطة للطالب <b>({archiveTargetStudent.student.name})</b>، وإعادة تعيين رصيده إلى <b>({maxPoints} نقاط كاملة)</b>.
-                            سيتم إرسال إشعار فوري للطالب ومدرسي الشعبة بهذا الإجراء والسبب المسجل.
+                            سيتم إرسال إشعار فوري للطالب ومعلمي الشعبة بهذا الإجراء والسبب المسجل.
                         </p>
 
                         <div>

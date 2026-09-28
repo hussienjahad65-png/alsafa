@@ -69,7 +69,7 @@ export default function OralExamListPage({ settings, logos, students, classData,
         <footer className="mt-6 border-t-2 border-dashed border-gray-400 pt-4 pb-2">
             <div className="flex justify-between items-end font-bold text-sm px-4">
                 <div className="text-center">
-                    <p className="mb-12">مدرس المادة</p>
+                    <p className="mb-12">معلم المادة</p>
                     <p className="border-t border-black pt-1 px-4">..................................</p>
                 </div>
                 <div className="text-center">

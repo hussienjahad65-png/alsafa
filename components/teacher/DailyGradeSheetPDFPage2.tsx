@@ -66,7 +66,7 @@ export default function DailyGradeSheetPDFPage2({ sheet, students, calculatedDat
     return (
         <div className={`${pageClasses} p-6 bg-white font-['Cairo'] flex flex-col`} dir="rtl">
             <header className="flex justify-between items-center mb-2">
-                <p><strong>مدرس المادة:</strong> {teacherName}</p>
+                <p><strong>معلم المادة:</strong> {teacherName}</p>
                 <p><strong>المادة الدراسية:</strong> {subjectName}</p>
                 <p><strong>الصف والشعبة:</strong> {gradeLevel} / {section}</p>
                 <p><strong>إدارة مدرسة:</strong> {schoolName}</p>

@@ -161,7 +161,7 @@ export function exportTeachersToExcel(
     // Table Headers
     const headers = [
         'التسلسل',
-        'اسم المدرس',
+        'اسم المعلم',
         'الصفوف التي يدرسها',
         'المواد التي يدرسها',
         'الشعب',
@@ -187,7 +187,7 @@ export function exportTeachersToExcel(
     sheetRows.push([]);
     sheetRows.push([
         'المجموع الكلي',
-        `عدد المدرسين: ${tableData.length}`,
+        `عدد المعلمين: ${tableData.length}`,
         '',
         '',
         'إجمالي الحصص الأسبوعية:',
@@ -220,10 +220,10 @@ export function exportTeachersToExcel(
     worksheet['!views'] = [{ RTL: true }];
 
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'جدول المدرسين والحصص');
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'جدول المعلمين والحصص');
 
     const cleanSchoolName = schoolName.replace(/[/\\?%*:|"<>]/g, '-').trim();
-    const fileName = `جدول_المدرسين_والمواد_والحصص_${cleanSchoolName}.xlsx`;
+    const fileName = `جدول_المعلمين_والمواد_والحصص_${cleanSchoolName}.xlsx`;
     XLSX.writeFile(workbook, fileName);
 }
 
@@ -267,7 +267,7 @@ export async function exportTeachersToWord(
                 children: [
                     new Paragraph({
                         alignment: AlignmentType.CENTER,
-                        children: [new TextRun({ text: 'اسم المدرس', bold: true, color: 'FFFFFF', size: 20, font: 'Arial' })]
+                        children: [new TextRun({ text: 'اسم المعلم', bold: true, color: 'FFFFFF', size: 20, font: 'Arial' })]
                     })
                 ]
             }),
@@ -400,7 +400,7 @@ export async function exportTeachersToWord(
                     new Paragraph({
                         alignment: AlignmentType.CENTER,
                         children: [
-                            new TextRun({ text: `المجموع: عدد المدرسين (${tableData.length})`, bold: true, size: 20, font: 'Arial', color: '0F172A' })
+                            new TextRun({ text: `المجموع: عدد المعلمين (${tableData.length})`, bold: true, size: 20, font: 'Arial', color: '0F172A' })
                         ]
                     })
                 ]
@@ -587,7 +587,7 @@ export async function exportTeachersToWord(
 
     const blob = await Packer.toBlob(doc);
     const cleanSchoolName = schoolName.replace(/[/\\?%*:|"<>]/g, '-').trim();
-    const fileName = `جدول_المدرسين_والمواد_والحصص_${cleanSchoolName}.docx`;
+    const fileName = `جدول_المعلمين_والمواد_والحصص_${cleanSchoolName}.docx`;
 
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');

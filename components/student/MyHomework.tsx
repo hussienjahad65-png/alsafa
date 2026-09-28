@@ -113,7 +113,7 @@ export default function MyHomework({ currentUser, activeHomeworks, submissions, 
         ) : (
             <div className="text-center p-8 bg-white rounded-lg shadow-md">
                 <h3 className="text-xl font-semibold text-gray-700">لا توجد واجبات حالياً</h3>
-                <p className="mt-2 text-gray-500">سيتم عرض الواجبات الجديدة هنا عند إرسالها من قبل المدرسين.</p>
+                <p className="mt-2 text-gray-500">سيتم عرض الواجبات الجديدة هنا عند إرسالها من قبل المعلمين.</p>
             </div>
         )}
     </div>

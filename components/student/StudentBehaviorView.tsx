@@ -142,7 +142,7 @@ export default function StudentBehaviorView({ currentUser }: StudentBehaviorView
                                     ? '⚠️ تم استنفاد كامل رصيد النقاط - يرجى مراجعة معاونية شؤون الطلبة مع ولي الأمر'
                                     : currentPoints >= 7
                                     ? 'سلوكك ممتاز ومنضبط، استمر في الحفاظ على هذا المستوى'
-                                    : 'انتبه لملاحظات المدرسين وتجنب الخصومات الإضافية'}
+                                    : 'انتبه لملاحظات المعلمين وتجنب الخصومات الإضافية'}
                             </p>
                         </div>
                     </div>
@@ -242,7 +242,7 @@ export default function StudentBehaviorView({ currentUser }: StudentBehaviorView
                                             المادة: {rec.subjectName || 'عام'}
                                         </span>
                                         <span className="text-slate-500 text-xs font-medium">
-                                            (المدرس / الموثق: {rec.teacherName})
+                                            (المعلم / الموثق: {rec.teacherName})
                                         </span>
                                     </div>
 
@@ -252,7 +252,7 @@ export default function StudentBehaviorView({ currentUser }: StudentBehaviorView
 
                                     {rec.notes && (
                                         <p className="text-xs text-slate-600 bg-white p-2 rounded-xl border border-slate-200">
-                                            ملاحظة المدرس: {rec.notes}
+                                            ملاحظة المعلم: {rec.notes}
                                         </p>
                                     )}
                                 </div>

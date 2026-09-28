@@ -400,7 +400,7 @@ export default function DisciplineReportModal({
                                             <th className="p-2.5 text-center w-10">ت</th>
                                             <th className="p-2.5">التاريخ والوقت</th>
                                             <th className="p-2.5">المادة</th>
-                                            <th className="p-2.5">المدرس / الموثق</th>
+                                            <th className="p-2.5">المعلم / الموثق</th>
                                             <th className="p-2.5">المخالفة السلوكية</th>
                                             <th className="p-2.5 text-center w-24">الخصم</th>
                                         </tr>
@@ -525,7 +525,7 @@ export default function DisciplineReportModal({
 
                             <p className="text-xs text-slate-600 leading-relaxed">
                                 سيتم نقل جميع المخالفات والخصومات الحالية للطالب <b>({student.name})</b> إلى سجل الأرشيف، وإعادة تعيين رصيد نقاطه إلى <b>({maxPoints} نقاط كاملة)</b>.
-                                سيتم إشعار الطالب ومدرسي الشعبة بهذا الإجراء والسبب المسجل.
+                                سيتم إشعار الطالب ومعلمي الشعبة بهذا الإجراء والسبب المسجل.
                             </p>
 
                             <div>

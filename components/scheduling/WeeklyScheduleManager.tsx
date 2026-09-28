@@ -481,7 +481,7 @@ export default function WeeklyScheduleManager({
                 localStorage.setItem(`schedule_enable_teacher_colors_${principalId}`, String(enableTeacherColors));
             } catch (e) {}
             setHasUnsavedChanges(false);
-            alert("تم حفظ الجدول والإعدادات والأنصبة وألوان المدرسين بنجاح في قاعدة البيانات!");
+            alert("تم حفظ الجدول والإعدادات والأنصبة وألوان المعلمين بنجاح في قاعدة البيانات!");
         } catch (error) {
             console.error("Error saving schedule:", error);
             alert("حدث خطأ أثناء حفظ الجدول. يرجى المحاولة مرة أخرى.");
@@ -675,7 +675,7 @@ export default function WeeklyScheduleManager({
                     const remainingTotal = result.remainingUnassigned.reduce((s, it) => s + it.count, 0);
                     setAutoRepairNotice({
                         success: false,
-                        message: `تمت معالجة وتوزيع (${result.resolvedCount} حصة) آلياً بنجاح. متبقي (${remainingTotal} حصة) تحتاج مراجعة يدوية أو تخفيف بعض أيام التفرغ للمدرسين.`
+                        message: `تمت معالجة وتوزيع (${result.resolvedCount} حصة) آلياً بنجاح. متبقي (${remainingTotal} حصة) تحتاج مراجعة يدوية أو تخفيف بعض أيام التفرغ للمعلمين.`
                     });
                 }
             } catch (err) {
@@ -1046,9 +1046,9 @@ export default function WeeklyScheduleManager({
                 effectiveDate: customPublishEffectiveDate
             });
 
-            let resultSuccessMsg = 'تم نشر وتعميم الجدول المدرسي بنجاح لكافة المدرسين والطلبة!';
+            let resultSuccessMsg = 'تم نشر وتعميم الجدول المدرسي بنجاح لكافة المعلمين والطلبة!';
             if (publishTarget === 'teachers') {
-                resultSuccessMsg = 'تم نشر الجدول بنجاح لبوابة المدرسين فقط (مخفي عن الطلبة لحين الاعتماد النهائي).';
+                resultSuccessMsg = 'تم نشر الجدول بنجاح لبوابة المعلمين فقط (مخفي عن الطلبة لحين الاعتماد النهائي).';
             } else if (publishTarget === 'students') {
                 resultSuccessMsg = 'تم نشر الجدول بنجاح لبوابة الطلبة فقط.';
             }
@@ -1399,7 +1399,7 @@ export default function WeeklyScheduleManager({
                                     <p className="text-xl font-black text-emerald-900 mt-1">{classes.length}</p>
                                 </div>
                                 <div className="p-3 bg-purple-50 border border-purple-100 rounded-xl text-center">
-                                    <p className="text-xs text-purple-600 font-bold">المدرسون المتاحون</p>
+                                    <p className="text-xs text-purple-600 font-bold">المعلمون المتاحون</p>
                                     <p className="text-xl font-black text-purple-900 mt-1">{teachers.length}</p>
                                 </div>
                                 <div className={`p-3 border rounded-xl text-center ${
@@ -1504,7 +1504,7 @@ export default function WeeklyScheduleManager({
                                 <CheckCircle2 className="text-emerald-600" size={24} />
                                 <div>
                                     <p className="font-bold">الجدول متكامل وخالٍ من أي تعارضات!</p>
-                                    <p className="text-xs text-emerald-700 mt-0.5">تم التحقق من منع تضارب المدرسين، احترام أيام الإجازة، والالتزام بكافة الحصص المسندة.</p>
+                                    <p className="text-xs text-emerald-700 mt-0.5">تم التحقق من منع تضارب المعلمين، احترام أيام الإجازة، والالتزام بكافة الحصص المسندة.</p>
                                 </div>
                             </div>
                         )}
@@ -1717,7 +1717,7 @@ export default function WeeklyScheduleManager({
                                                     </span>
                                                 </div>
                                                 <p className="text-xs text-gray-500 mt-1">
-                                                    المدرس: <strong className="text-gray-800">{item.teacherName}</strong>
+                                                    المعلم: <strong className="text-gray-800">{item.teacherName}</strong>
                                                 </p>
                                             </div>
                                         </div>
@@ -1851,7 +1851,7 @@ export default function WeeklyScheduleManager({
 
                     <div className="p-5 space-y-4">
                         <p className="text-xs text-gray-500">
-                            اختر المادة والمدرس لتثبيتها في هذه الخانة، أو تفريغ الخانة:
+                            اختر المادة والمعلم لتثبيتها في هذه الخانة، أو تفريغ الخانة:
                         </p>
 
                         <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
@@ -1889,7 +1889,7 @@ export default function WeeklyScheduleManager({
                                             if (assignedTeacher) {
                                                 handleSaveCellAssignment(subj.id, assignedTeacher.id);
                                             } else {
-                                                alert("يرجى إسناد مدرس لهذه المادة أولاً من لوحة إدارة المدرسين.");
+                                                alert("يرجى إسناد معلم لهذه المادة أولاً من لوحة إدارة المعلمين.");
                                             }
                                         }}
                                         className={`w-full p-3 rounded-xl border text-right transition flex items-center justify-between ${
@@ -1900,11 +1900,11 @@ export default function WeeklyScheduleManager({
                                     >
                                         <div>
                                             <p className="text-gray-900 font-bold">{subj.name}</p>
-                                            <p className="text-xs text-gray-500 mt-0.5">المدرس: {teacherName}</p>
+                                            <p className="text-xs text-gray-500 mt-0.5">المعلم: {teacherName}</p>
                                         </div>
                                         {isTeacherOff && (
                                             <span className="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-bold">
-                                                يوم إجازة للمدرس
+                                                يوم إجازة للمعلم
                                             </span>
                                         )}
                                         {isCurrent && (
@@ -1954,7 +1954,7 @@ export default function WeeklyScheduleManager({
                             {dragConflictAlert.message}
                         </div>
                         <p className="text-xs text-gray-500">
-                            💡 النظام يمنع تلقائياً أي نقل يؤدي إلى تضارب في حصص المدرسين، أو انتهاك أيام التفرغ، أو تكرار نفس الدرس للشعبة في اليوم الواحد.
+                            💡 النظام يمنع تلقائياً أي نقل يؤدي إلى تضارب في حصص المعلمين، أو انتهاك أيام التفرغ، أو تكرار نفس الدرس للشعبة في اليوم الواحد.
                         </p>
                     </div>
 
@@ -2170,7 +2170,7 @@ export default function WeeklyScheduleManager({
                                                     );
                                                 })}
                                             </tr>
-                                            {/* Row 2: Sub-headers (المادة | المدرس) */}
+                                            {/* Row 2: Sub-headers (المادة | المعلم) */}
                                             <tr>
                                                 {classesInCurrentStage.map((cls, idx) => {
                                                     const color = SECTION_COLORS[idx % SECTION_COLORS.length];
@@ -2186,7 +2186,7 @@ export default function WeeklyScheduleManager({
                                                                 style={{ backgroundColor: color.subHeaderBg }}
                                                                 className="border-2 border-black text-black font-bold text-xs sm:text-sm p-1.5 w-28"
                                                             >
-                                                                المدرس
+                                                                المعلم
                                                             </th>
                                                         </React.Fragment>
                                                     );
@@ -2320,7 +2320,7 @@ export default function WeeklyScheduleManager({
                                     : 'text-gray-600 hover:text-gray-900'
                             }`}
                         >
-                            حسب المدرس
+                            حسب المعلم
                         </button>
                         <button
                             onClick={() => setDisplayMode('master_grid')}
@@ -2354,7 +2354,7 @@ export default function WeeklyScheduleManager({
 
                     {displayMode === 'by_teacher' && (
                         <div className="flex items-center gap-2">
-                            <label className="text-xs font-bold text-gray-600 whitespace-nowrap">اختر المدرس:</label>
+                            <label className="text-xs font-bold text-gray-600 whitespace-nowrap">اختر المعلم:</label>
                             <select
                                 value={selectedTeacherId}
                                 onChange={(e) => setSelectedTeacherId(e.target.value)}
@@ -2417,10 +2417,10 @@ export default function WeeklyScheduleManager({
                         <button
                             onClick={() => exportTeacherScheduleWord(teachers, classes, schedule, settings, config.activeDays, config, teacherConstraints)}
                             className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-xs transition"
-                            title="تحميل جداول المدرسين في ملف Word"
+                            title="تحميل جداول المعلمين في ملف Word"
                         >
                             <Users size={15} />
-                            <span>جداول المدرسين (Word)</span>
+                            <span>جداول المعلمين (Word)</span>
                         </button>
 
                         <button
@@ -2446,10 +2446,10 @@ export default function WeeklyScheduleManager({
                             type="button"
                             onClick={() => setShowTeacherColorModal(true)}
                             className="flex items-center gap-1.5 px-3.5 py-1.5 bg-gradient-to-r from-indigo-700 to-purple-700 hover:from-indigo-800 hover:to-purple-800 text-white rounded-xl text-xs font-black shadow-xs transition cursor-pointer"
-                            title="تخصيص ألوان المدرسين أو تفريغ ألوان الجدول أو استعادة الافتراضي"
+                            title="تخصيص ألوان المعلمين أو تفريغ ألوان الجدول أو استعادة الافتراضي"
                         >
                             <Palette size={15} className="text-yellow-300" />
-                            <span>ألوان المدرسين 🎨</span>
+                            <span>ألوان المعلمين 🎨</span>
                         </button>
                     </div>
                 </div>
@@ -2465,7 +2465,7 @@ export default function WeeklyScheduleManager({
                                 <div>
                                     <div className="flex items-center gap-2">
                                         <h4 className="text-xs sm:text-sm font-black text-gray-900">
-                                            ألوان المدرسين في الجدول
+                                            ألوان المعلمين في الجدول
                                         </h4>
                                         <span className={`text-[10px] font-black px-2 py-0.5 rounded-lg border ${
                                             enableTeacherColors
@@ -2476,7 +2476,7 @@ export default function WeeklyScheduleManager({
                                         </span>
                                     </div>
                                     <p className="text-[11px] text-gray-500 font-medium">
-                                        ألوان مميزة وبارزة لكل مدرس &bull; انقر على أي مدرس لتعديل لونه أو تخصيصه يدوياً
+                                        ألوان مميزة وبارزة لكل معلم &bull; انقر على أي معلم لتعديل لونه أو تخصيصه يدوياً
                                     </p>
                                 </div>
                             </div>
@@ -2491,7 +2491,7 @@ export default function WeeklyScheduleManager({
                                             ? 'bg-white hover:bg-rose-50 text-rose-700 border-gray-200 hover:border-rose-300'
                                             : 'bg-emerald-600 hover:bg-emerald-700 text-white border-emerald-600 shadow-xs'
                                     }`}
-                                    title={enableTeacherColors ? "تفريغ ألوان الجدول مؤقتاً لعرضه بدون ألوان" : "إعادة تفعيل ألوان المدرسين"}
+                                    title={enableTeacherColors ? "تفريغ ألوان الجدول مؤقتاً لعرضه بدون ألوان" : "إعادة تفعيل ألوان المعلمين"}
                                 >
                                     {enableTeacherColors ? (
                                         <>
@@ -2501,7 +2501,7 @@ export default function WeeklyScheduleManager({
                                     ) : (
                                         <>
                                             <Eye size={13} />
-                                            <span>تفعيل ألوان المدرسين</span>
+                                            <span>تفعيل ألوان المعلمين</span>
                                         </>
                                     )}
                                 </button>
@@ -2511,7 +2511,7 @@ export default function WeeklyScheduleManager({
                                     type="button"
                                     onClick={handleResetAllColorsToDefault}
                                     className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 rounded-xl text-xs font-black transition cursor-pointer"
-                                    title="استعادة الألوان الافتراضية البارزة لكافة المدرسين"
+                                    title="استعادة الألوان الافتراضية البارزة لكافة المعلمين"
                                 >
                                     <RotateCcw size={13} />
                                     <span>استعادة الافتراضي</span>
@@ -2878,7 +2878,7 @@ export default function WeeklyScheduleManager({
                     <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
                         {(() => {
                             const teacher = teachers.find(t => t.id === selectedTeacherId) || teachers[0];
-                            if (!teacher) return <div className="p-8 text-center text-gray-500">لا يوجد مدرس محدد</div>;
+                            if (!teacher) return <div className="p-8 text-center text-gray-500">لا يوجد معلم محدد</div>;
 
                             const tConstraint = teacherConstraints[teacher.id];
                             const offDays = Array.isArray(tConstraint?.offDays) ? tConstraint.offDays : [];
@@ -3033,7 +3033,7 @@ export default function WeeklyScheduleManager({
                         <div className="p-4 bg-gray-800 text-white flex justify-between items-center">
                             <div>
                                 <h3 className="text-xl font-bold">الجدول العام الشامل للمدرسة</h3>
-                                <p className="text-xs text-gray-300 mt-0.5">عرض مجمع لكافة الصفوف والشعب والمدرسين</p>
+                                <p className="text-xs text-gray-300 mt-0.5">عرض مجمع لكافة الصفوف والشعب والمعلمين</p>
                             </div>
                         </div>
 
@@ -3198,7 +3198,7 @@ export default function WeeklyScheduleManager({
                     <div>
                         <h3 className="text-xl font-bold text-gray-900">تحديد أنصبة وحصص المواد للشعب الدراسية</h3>
                         <p className="text-xs text-gray-500 mt-1">
-                            حدد عدد الحصص الأسبوعية لكل مادة مسندة. تُهمل المواد غير المسندة لمدرس، ويتم اعتماد النصاب الذي يحدده مدير المدرسة بدقة دون فرض عدد حصص معين.
+                            حدد عدد الحصص الأسبوعية لكل مادة مسندة. تُهمل المواد غير المسندة لمعلم، ويتم اعتماد النصاب الذي يحدده مدير المدرسة بدقة دون فرض عدد حصص معين.
                         </p>
                     </div>
                     <div className="flex items-center gap-2">
@@ -3296,7 +3296,7 @@ export default function WeeklyScheduleManager({
                                         <div>
                                             <p className="font-bold text-gray-900 text-sm">{subj.name}</p>
                                             <p className="text-[11px] text-gray-500 mt-0.5">
-                                                المدرس: {assignedTeacher ? <strong className="text-cyan-800">{assignedTeacher.name}</strong> : <span className="text-amber-600">غير مسند</span>}
+                                                المعلم: {assignedTeacher ? <strong className="text-cyan-800">{assignedTeacher.name}</strong> : <span className="text-amber-600">غير مسند</span>}
                                             </p>
                                         </div>
 
@@ -3337,9 +3337,9 @@ export default function WeeklyScheduleManager({
         return (
             <div className="space-y-6">
                 <div className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200">
-                    <h3 className="text-xl font-bold text-gray-900">إدارة تفرغ المدرسين والتفريغ الجزئي للحصص</h3>
+                    <h3 className="text-xl font-bold text-gray-900">إدارة تفرغ المعلمين والتفريغ الجزئي للحصص</h3>
                     <p className="text-xs text-gray-500 mt-1">
-                        يمكنك تحديد أيام التفرغ الكامل لكل مدرس، أو تحديد <strong>تفريغ جزئي لحصص محددة</strong> في اليوم الواحد (مثل تفريغ الحصة الأولى أو الأخيرة في يوم معين أو جميع الأيام) بحيث يتجنب نظام التوليد الذكي إسناد حصص له في تلك الأوقات.
+                        يمكنك تحديد أيام التفرغ الكامل لكل معلم، أو تحديد <strong>تفريغ جزئي لحصص محددة</strong> في اليوم الواحد (مثل تفريغ الحصة الأولى أو الأخيرة في يوم معين أو جميع الأيام) بحيث يتجنب نظام التوليد الذكي إسناد حصص له في تلك الأوقات.
                     </p>
                 </div>
 
@@ -3441,7 +3441,7 @@ export default function WeeklyScheduleManager({
                                                 التفريغ الجزئي للحصص في اليوم الواحد
                                             </span>
                                             <p className="text-[11px] text-gray-500 mt-0.5">
-                                                حدد الحصص التي يُفرغ منها المدرس (كالحصة الأولى أو الأخيرة) لعدم إسناد درس له فيها:
+                                                حدد الحصص التي يُفرغ منها المعلم (كالحصة الأولى أو الأخيرة) لعدم إسناد درس له فيها:
                                             </p>
                                         </div>
 
@@ -3468,7 +3468,7 @@ export default function WeeklyScheduleManager({
                                                     type="button"
                                                     onClick={() => handleSetTeacherGlobalUnavailablePreset(teacher.id, 'clear')}
                                                     className="px-2 py-1 bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-800 rounded-lg text-[10px] font-bold transition shadow-2xs"
-                                                    title="إلغاء جميع التفريغات الجزئية لهذا المدرس"
+                                                    title="إلغاء جميع التفريغات الجزئية لهذا المعلم"
                                                 >
                                                     مسح التفريغ
                                                 </button>
@@ -3480,7 +3480,7 @@ export default function WeeklyScheduleManager({
                                     <div className="space-y-2 pt-1">
                                         {workingDays.length === 0 ? (
                                             <div className="p-2 text-center text-xs text-rose-600 font-semibold bg-rose-50/50 rounded-lg border border-rose-200">
-                                                المدرس مفرغ في جميع أيام الأسبوع
+                                                المعلم مفرغ في جميع أيام الأسبوع
                                             </div>
                                         ) : (
                                             workingDays.map(day => {
@@ -3887,8 +3887,8 @@ export default function WeeklyScheduleManager({
                                 className="w-4 h-4 text-cyan-600 rounded"
                             />
                             <div>
-                                <p className="font-bold text-gray-900">توزيع حصص المدرس بشكل متوازن على مدار أيام دوامه</p>
-                                <p className="text-gray-500 mt-0.5">تجنب ضغط حصص المدرس في يوم واحد وتوزيعها بانتظام لتجنب الإرهاق.</p>
+                                <p className="font-bold text-gray-900">توزيع حصص المعلم بشكل متوازن على مدار أيام دوامه</p>
+                                <p className="text-gray-500 mt-0.5">تجنب ضغط حصص المعلم في يوم واحد وتوزيعها بانتظام لتجنب الإرهاق.</p>
                             </div>
                         </label>
 
@@ -3923,7 +3923,7 @@ export default function WeeklyScheduleManager({
                                     <span>قيد ساحة رياضية واحدة (منع درسين رياضة في نفس التوقيت)</span>
                                     <span className="text-[10px] bg-amber-200 text-amber-900 px-1.5 py-0.5 rounded font-black">مورد مشترك</span>
                                 </p>
-                                <p className="text-gray-600 mt-0.5">يمنع وضع درسين تربية رياضية في نفس الحصة بالمدرسة بغض النظر عن الصف أو الشعبة أو المدرس، لتفادي ازدحام الساحة الرياضية المدرسية المشتركة.</p>
+                                <p className="text-gray-600 mt-0.5">يمنع وضع درسين تربية رياضية في نفس الحصة بالمدرسة بغض النظر عن الصف أو الشعبة أو المعلم، لتفادي ازدحام الساحة الرياضية المدرسية المشتركة.</p>
                             </div>
                         </label>
                     </div>
@@ -3954,7 +3954,7 @@ export default function WeeklyScheduleManager({
                                     نشر وتعميم الجدول الدراسي الأسبوعي
                                 </h3>
                                 <p className="text-xs text-gray-500 mt-0.5">
-                                    إتاحة الجداول في بوابات المدرسين والطلبة.
+                                    إتاحة الجداول في بوابات المعلمين والطلبة.
                                 </p>
                             </div>
                         </div>
@@ -4000,8 +4000,8 @@ export default function WeeklyScheduleManager({
                                     </div>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-xs text-gray-900">للجميع (المدرسين والطلبة)</p>
-                                    <p className="text-[10px] text-gray-500 mt-0.5">تحديث بوابات المدرسين والطلبة معاً</p>
+                                    <p className="font-bold text-xs text-gray-900">للجميع (المعلمين والطلبة)</p>
+                                    <p className="text-[10px] text-gray-500 mt-0.5">تحديث بوابات المعلمين والطلبة معاً</p>
                                 </div>
                             </button>
 
@@ -4026,7 +4026,7 @@ export default function WeeklyScheduleManager({
                                     </div>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-xs text-gray-900">للمدرسين فقط</p>
+                                    <p className="font-bold text-xs text-gray-900">للمعلمين فقط</p>
                                     <p className="text-[10px] text-gray-500 mt-0.5">إتاحة الجدول للكادر التعليمي دون إظهاره للطلبة</p>
                                 </div>
                             </button>
@@ -4066,7 +4066,7 @@ export default function WeeklyScheduleManager({
                                 ? 'bg-cyan-50/70 border-cyan-200 ring-1 ring-cyan-400/30'
                                 : 'bg-gray-50/70 border-gray-200 opacity-60'
                         }`}>
-                            <p className="text-xs text-cyan-800 font-bold">المدرسين المستفيدين</p>
+                            <p className="text-xs text-cyan-800 font-bold">المعلمين المستفيدين</p>
                             <p className="text-2xl font-black text-cyan-900 mt-1">{teachers.length}</p>
                             <p className="text-[10px] text-cyan-600">
                                 {publishTarget === 'students' ? 'غير مشمولين بالنشر' : 'في بوابتهم الخاصة'}
@@ -4188,7 +4188,7 @@ export default function WeeklyScheduleManager({
                             الجدول المدرسي الأسبوعي الذكي
                         </h1>
                         <p className="text-xs sm:text-sm text-cyan-200 mt-1">
-                            توليد وتوزيع الحصص الأسبوعية آلياً مع المنع الصارم لتضارب المدرسين واحترام أيام التفرغ
+                            توليد وتوزيع الحصص الأسبوعية آلياً مع المنع الصارم لتضارب المعلمين واحترام أيام التفرغ
                         </p>
                     </div>
                 </div>
@@ -4199,7 +4199,7 @@ export default function WeeklyScheduleManager({
                         <div className="hidden lg:flex items-center gap-2 px-3.5 py-2 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 text-xs font-bold">
                             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                             <span>
-                                منشور: {publishedInfo.publishTarget === 'teachers' ? 'للمدرسين فقط' : publishedInfo.publishTarget === 'students' ? 'للطلاب فقط' : 'للجميع'}
+                                منشور: {publishedInfo.publishTarget === 'teachers' ? 'للمعلمين فقط' : publishedInfo.publishTarget === 'students' ? 'للطلاب فقط' : 'للجميع'}
                             </span>
                         </div>
                     )}
@@ -4210,7 +4210,7 @@ export default function WeeklyScheduleManager({
                             setPublishResult(null);
                         }}
                         className="flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 active:scale-95 text-white font-black rounded-xl shadow-lg transition-all text-sm"
-                        title="نشر الجدول إلى بوابات المدرسين وبوابات الطلاب"
+                        title="نشر الجدول إلى بوابات المعلمين وبوابات الطلاب"
                     >
                         <Send size={18} />
                         <span>نشر الجدول</span>
@@ -4288,7 +4288,7 @@ export default function WeeklyScheduleManager({
                     }`}
                 >
                     <UserCheck size={18} />
-                    <span>أيام تفرغ المدرسين</span>
+                    <span>أيام تفرغ المعلمين</span>
                 </button>
 
                 <button

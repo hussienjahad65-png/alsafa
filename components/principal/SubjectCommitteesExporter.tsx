@@ -215,7 +215,7 @@ export function buildSubjectCommitteesData(
             });
 
             for (const [teacherId, stages] of teacherEntries) {
-                const teacherName = teacherNameMap.get(teacherId) || 'مدرس';
+                const teacherName = teacherNameMap.get(teacherId) || 'معلم';
 
                 // Sort stages for this teacher in descending grade order (الثالث ثم الثاني ثم الأول)
                 const sortedStages = Array.from(stages.keys()).sort((s1, s2) => getStageRank(s1) - getStageRank(s2));

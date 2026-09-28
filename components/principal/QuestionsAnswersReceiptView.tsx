@@ -17,7 +17,7 @@ interface QuestionsAnswersReceiptViewProps {
 export interface PageConfig {
     grade: string;
     subjects: string[];
-    teacherLabel: 'اسم المعلم' | 'اسم المدرس';
+    teacherLabel: 'اسم المعلم' | 'اسم المعلم';
 }
 
 const PageWrapper = ({ title, children, onPrev, onNext }: { title: string, children?: React.ReactNode, onPrev: () => void, onNext: () => void }) => (
@@ -33,7 +33,7 @@ const PageWrapper = ({ title, children, onPrev, onNext }: { title: string, child
 
 const getPagesConfig = (schoolLevel: string, classes: ClassData[]): PageConfig[] => {
     const isPrimary = schoolLevel === 'ابتدائية';
-    const teacherLabel = isPrimary ? 'اسم المعلم' : 'اسم المدرس';
+    const teacherLabel = isPrimary ? 'اسم المعلم' : 'اسم المعلم';
     
     const uniqueStages = Array.from(new Set(classes.map(c => c.stage)));
     const gradeOrder = [
@@ -151,9 +151,9 @@ export default function QuestionsAnswersReceiptView({ setCurrentPageKey, setting
             </div>
 
             <div className="mt-8 space-y-8 bg-gray-100 p-4 rounded-lg">
-                <h3 className="text-xl font-bold text-center">معاينة وتعديل أسماء المعلمين/المدرسين</h3>
+                <h3 className="text-xl font-bold text-center">معاينة وتعديل أسماء المعلمين/المعلمين</h3>
                  <div className="my-4 text-center">
-                    <div className="p-3 bg-blue-900 text-white font-bold rounded-t-lg">اكتب اسم المعلم / المدرس الذي تم استلام الاسئلة والاجوبة منه و للدورين وحسب اختصاصة او تستطيع تصدير ملف pdf لكتابة الاسم يدويا" ,</div>
+                    <div className="p-3 bg-blue-900 text-white font-bold rounded-t-lg">اكتب اسم المعلم / المعلم الذي تم استلام الاسئلة والاجوبة منه و للدورين وحسب اختصاصة او تستطيع تصدير ملف pdf لكتابة الاسم يدويا" ,</div>
                     <div className="p-3 bg-black text-red-500 font-bold rounded-b-lg">نصائح مهمة لا تستلم لدور واحد فقط , ولا تستلم الاسئلة دون وجود الاجوبة النموذجية , تأكد من غلق المغلف جيدا" وختمه وتوقيع المعلم عليه مع و جود كافة المعلومات الضرورية مدونة على المغلف</div>
                 </div>
                 {pagesConfig.map(page => (
@@ -168,7 +168,7 @@ export default function QuestionsAnswersReceiptView({ setCurrentPageKey, setting
                                         value={teacherNames[page.grade]?.[subject] || ''}
                                         onChange={e => handleTeacherNameChange(page.grade, subject, e.target.value)}
                                         className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
-                                        placeholder={`اسم ${page.teacherLabel === 'اسم المعلم' ? 'المعلم' : 'المدرس'}`}
+                                        placeholder={`اسم ${page.teacherLabel === 'اسم المعلم' ? 'المعلم' : 'المعلم'}`}
                                     />
                                 </div>
                             ))}

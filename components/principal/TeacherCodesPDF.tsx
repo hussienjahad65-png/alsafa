@@ -13,7 +13,7 @@ export default function TeacherCodesPDF({ teachers }: TeacherCodesPDFProps) {
 
     return (
         <div className="w-[794px] h-[1123px] p-8 bg-white font-['Cairo']" dir="rtl">
-            <h1 className="text-2xl font-bold text-center mb-4">الأرقام السرية للكادر (مدرسين ومرشدين)</h1>
+            <h1 className="text-2xl font-bold text-center mb-4">الأرقام السرية للكادر (معلمين ومرشدين)</h1>
             <table className="w-full border-collapse border border-black text-lg">
                 <thead className="bg-gray-200">
                     <tr>

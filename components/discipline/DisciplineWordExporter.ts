@@ -220,7 +220,7 @@ export async function exportDisciplineWordDocument({
                                     new TableCell({
                                         width: { size: 20, type: WidthType.PERCENTAGE },
                                         shading: { fill: '0F172A', type: ShadingType.CLEAR },
-                                        children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: 'المدرس / الموثق', bold: true, color: 'FFFFFF', size: 18, font: 'Arial' })] })]
+                                        children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ text: 'المعلم / الموثق', bold: true, color: 'FFFFFF', size: 18, font: 'Arial' })] })]
                                     }),
                                     new TableCell({
                                         width: { size: 25, type: WidthType.PERCENTAGE },

@@ -177,7 +177,7 @@ export default function HomeworkSubmissionView({ currentUser, homework, submissi
 
         return (
             <div className="p-4 bg-gray-50 rounded-lg mb-4">
-                <h4 className="font-bold mb-4 text-gray-700">مرفقات الواجب (من المدرس):</h4>
+                <h4 className="font-bold mb-4 text-gray-700">مرفقات الواجب (من المعلم):</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {homework.attachments.map((att, index) => {
                         if (att.type === 'image') {
@@ -293,7 +293,7 @@ export default function HomeworkSubmissionView({ currentUser, homework, submissi
             
             {homework.notes && (
                 <div className="p-4 bg-gray-50 rounded-lg mb-4 border-r-4 border-cyan-500">
-                    <h4 className="font-bold mb-2 text-cyan-700">ملاحظات المدرس:</h4>
+                    <h4 className="font-bold mb-2 text-cyan-700">ملاحظات المعلم:</h4>
                     <p className="whitespace-pre-wrap text-gray-800">{homework.notes}</p>
                 </div>
             )}

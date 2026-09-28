@@ -287,7 +287,7 @@ export default function TeacherLogExporter({ classes, settings, users }: { class
                 setExportProgress(Math.round(((cIndex + 1) / totalClassCount) * 100));
             }
 
-            pdf.save(`سجل_مدرس-${selectedStage}-${selectedSubject}.pdf`);
+            pdf.save(`سجل_معلم-${selectedStage}-${selectedSubject}.pdf`);
 
         } catch (error) {
             console.error(error);
@@ -304,7 +304,7 @@ export default function TeacherLogExporter({ classes, settings, users }: { class
 
     return (
         <div className="bg-white p-8 rounded-xl shadow-lg max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 border-b pb-4">تصدير سجل المدرس</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 border-b pb-4">تصدير سجل المعلم</h2>
             {isExporting && (
                 <div className="fixed inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center z-50 text-white">
                     <Loader2 className="animate-spin h-16 w-16 mb-4" />
@@ -347,7 +347,7 @@ export default function TeacherLogExporter({ classes, settings, users }: { class
                 </div>
                 <div className="space-y-6">
                     <div>
-                        <label className="block text-md font-bold text-gray-700 mb-2">4. اسم مدرس المادة</label>
+                        <label className="block text-md font-bold text-gray-700 mb-2">4. اسم معلم المادة</label>
                         <div className="flex gap-2">
                              <input 
                                 type="text" 
@@ -415,7 +415,7 @@ export default function TeacherLogExporter({ classes, settings, users }: { class
                 <div className="flex justify-center">
                     <button onClick={handleExportPdf} disabled={selectedClassIds.length === 0 || !selectedSubject || isExporting} className="flex items-center justify-center gap-2 px-8 py-3 bg-cyan-600 text-white font-bold rounded-lg hover:bg-cyan-700 transition shadow-md disabled:bg-gray-400 disabled:cursor-not-allowed">
                         <FileDown size={20} />
-                        <span>تصدير سجل المدرس (PDF)</span>
+                        <span>تصدير سجل المعلم (PDF)</span>
                     </button>
                 </div>
             </div>

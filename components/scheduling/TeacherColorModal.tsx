@@ -71,10 +71,10 @@ export default function TeacherColorModal({
                         </div>
                         <div>
                             <h3 className="text-lg sm:text-xl font-black">
-                                تخصيص وتحديد ألوان المدرسين في الجدول
+                                تخصيص وتحديد ألوان المعلمين في الجدول
                             </h3>
                             <p className="text-xs text-blue-200 mt-0.5 font-medium">
-                                ألوان افتراضية بارزة ومميزة لكل مدرس مع إمكانية التعديل اليدوي أو تفريغ الألوان
+                                ألوان افتراضية بارزة ومميزة لكل معلم مع إمكانية التعديل اليدوي أو تفريغ الألوان
                             </p>
                         </div>
                     </div>
@@ -122,7 +122,7 @@ export default function TeacherColorModal({
                             type="button"
                             onClick={onClearAllColors}
                             className="flex items-center gap-1.5 px-3.5 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-xl text-xs font-black transition cursor-pointer"
-                            title="تفريغ ألوان الجدول وجعل كافة خلايا المدرسين بيضاء غير ملونة"
+                            title="تفريغ ألوان الجدول وجعل كافة خلايا المعلمين بيضاء غير ملونة"
                         >
                             <Trash2 size={14} />
                             <span>تفريغ ألوان الجدول بالكامل</span>
@@ -133,7 +133,7 @@ export default function TeacherColorModal({
                             type="button"
                             onClick={onResetAllToDefault}
                             className="flex items-center gap-1.5 px-3.5 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 rounded-xl text-xs font-black transition cursor-pointer"
-                            title="إعادة تعيين الألوان الافتراضية البارزة والمميزة لجميع المدرسين تلقائياً"
+                            title="إعادة تعيين الألوان الافتراضية البارزة والمميزة لجميع المعلمين تلقائياً"
                         >
                             <RotateCcw size={14} />
                             <span>استعادة الألوان الافتراضية البارزة</span>
@@ -149,12 +149,12 @@ export default function TeacherColorModal({
                             type="text"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="بحث باسم المدرس..."
+                            placeholder="بحث باسم المعلم..."
                             className="w-full pr-9 pl-3 py-1.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-bold text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
                         />
                     </div>
                     <span className="text-xs font-bold text-gray-500">
-                        إجمالي الكادر التدريسي: ({teachers.length} مدرس)
+                        إجمالي الكادر التدريسي: ({teachers.length} معلم)
                     </span>
                 </div>
 
@@ -162,7 +162,7 @@ export default function TeacherColorModal({
                 <div className="p-4 sm:p-6 overflow-y-auto flex-1 space-y-3.5 bg-gray-50/50">
                     {filteredTeachers.length === 0 ? (
                         <div className="p-12 text-center text-gray-500 font-bold bg-white rounded-2xl border border-gray-200">
-                            لا يوجد مدرس بهذا الاسم
+                            لا يوجد معلم بهذا الاسم
                         </div>
                     ) : (
                         filteredTeachers.map((teacher, idx) => {
@@ -214,7 +214,7 @@ export default function TeacherColorModal({
                                                     )}
                                                 </h4>
                                                 <p className="text-[11px] text-gray-500 font-medium">
-                                                    {teacher.email || 'مدرس'}
+                                                    {teacher.email || 'معلم'}
                                                 </p>
                                             </div>
                                         </div>
@@ -306,7 +306,7 @@ export default function TeacherColorModal({
                                                         ? 'bg-rose-100 text-rose-800 border-rose-300 font-black'
                                                         : 'bg-white hover:bg-rose-50 text-rose-600 border-gray-200'
                                                 }`}
-                                                title="جعل خانات هذا المدرس بيضاء مفرغة من الألوان"
+                                                title="جعل خانات هذا المعلم بيضاء مفرغة من الألوان"
                                             >
                                                 تفريغ اللون
                                             </button>

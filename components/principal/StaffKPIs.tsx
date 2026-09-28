@@ -152,7 +152,7 @@ export default function StaffKPIs({ principal, users, classes }: StaffKPIsProps)
                         <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                         <input 
                             type="text" 
-                            placeholder="بحث عن مدرس..." 
+                            placeholder="بحث عن معلم..." 
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full pr-10 pl-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
@@ -240,7 +240,7 @@ export default function StaffKPIs({ principal, users, classes }: StaffKPIsProps)
 
                 {filteredKPIs.length === 0 && (
                     <div className="col-span-full text-center py-12 bg-white rounded-xl">
-                        <p className="text-gray-500">لا يوجد مدرسون مطابقون لهذا البحث.</p>
+                        <p className="text-gray-500">لا يوجد معلمون مطابقون لهذا البحث.</p>
                     </div>
                 )}
             </div>
@@ -250,8 +250,8 @@ export default function StaffKPIs({ principal, users, classes }: StaffKPIsProps)
                 <div className="text-sm text-indigo-900 leading-relaxed">
                     <p className="font-bold mb-1">كيف يتم حساب النسب؟</p>
                     <ul className="list-disc pr-5 space-y-1">
-                        <li><strong>نسبة التصحيح:</strong> تقارن عدد إجابات الطلاب التي قام المدرس بمراجعتها فعلياً مقابل إجمالي الإجابات الواردة.</li>
-                        <li><strong>إنجاز السجل:</strong> تفحص جميع خانات الدرجات (شهر 1، شهر 2، نصف السنة، إلخ) لجميع الطلاب في الشعب التي يدرسها المدرس.</li>
+                        <li><strong>نسبة التصحيح:</strong> تقارن عدد إجابات الطلاب التي قام المعلم بمراجعتها فعلياً مقابل إجمالي الإجابات الواردة.</li>
+                        <li><strong>إنجاز السجل:</strong> تفحص جميع خانات الدرجات (شهر 1، شهر 2، نصف السنة، إلخ) لجميع الطلاب في الشعب التي يدرسها المعلم.</li>
                     </ul>
                 </div>
             </div>

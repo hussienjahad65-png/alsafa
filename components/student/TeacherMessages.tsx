@@ -35,7 +35,7 @@ const ChatWindow = ({ conversation, currentUser, messages }: { conversation: Con
     
     return (
         <div className="flex flex-col h-full bg-white border rounded-lg shadow-inner">
-            <div className="p-3 border-b bg-gray-50"><h3 className="font-bold text-lg">{conversation.groupName || `مدرس ${conversation.subjectName}`}</h3></div>
+            <div className="p-3 border-b bg-gray-50"><h3 className="font-bold text-lg">{conversation.groupName || `معلم ${conversation.subjectName}`}</h3></div>
             <div className="flex-1 p-4 overflow-y-auto bg-gray-100 space-y-4">
                 {messages.map(msg => (
                     <div key={msg.id} className={`flex ${msg.senderId === currentUser.id ? 'justify-end' : 'justify-start'}`}>
@@ -50,7 +50,7 @@ const ChatWindow = ({ conversation, currentUser, messages }: { conversation: Con
                 ))}
                 <div ref={messagesEndRef} />
             </div>
-            {conversation.chatDisabled ? (<div className="p-4 border-t bg-gray-100 text-center text-gray-500 font-semibold">الدردشة معطلة من قبل المدرس.</div>) : (
+            {conversation.chatDisabled ? (<div className="p-4 border-t bg-gray-100 text-center text-gray-500 font-semibold">الدردشة معطلة من قبل المعلم.</div>) : (
                 <div className="p-2 border-t bg-white">
                     <div className="flex items-center gap-2">
                         <input type="text" value={newMessage} onChange={e => setNewMessage(e.target.value)} onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleSendMessage())} placeholder="اكتب رسالتك..." className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-cyan-500" />
@@ -128,7 +128,7 @@ export default function TeacherMessages({ currentUser }: { currentUser: User }) 
                         </button>
                     )
                 }) : (
-                     <div className="p-4 text-center text-gray-500">لم يبدأ أي مدرس محادثة معك بعد.</div>
+                     <div className="p-4 text-center text-gray-500">لم يبدأ أي معلم محادثة معك بعد.</div>
                 )}
             </div>
             <div className="md:col-span-2 h-full">

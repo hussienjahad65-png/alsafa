@@ -317,7 +317,7 @@ export function exportTeacherScheduleWord(
                         </td>
                         <td style="text-align: left; width: 35%; font-size: 14px; line-height: 1.5; vertical-align: top;">
                             <div style="background-color: #f0fdf4; border: 1px solid #16a34a; padding: 6px 14px; border-radius: 6px; display: inline-block;">
-                                <strong>اسم المدرس:</strong> ${teacher.name}<br/>
+                                <strong>اسم المعلم:</strong> ${teacher.name}<br/>
                                 <strong>إجمالي النصاب:</strong> ${totalWeeklyPeriods} حصة أسبوعياً
                             </div>
                         </td>
@@ -364,7 +364,7 @@ export function exportTeacherScheduleWord(
               xmlns="http://www.w3.org/TR/REC-html40">
         <head>
             <meta charset="utf-8">
-            <title>جداول المدرسين</title>
+            <title>جداول المعلمين</title>
             <style>
                 @page {
                     size: A4 landscape;
@@ -384,7 +384,7 @@ export function exportTeacherScheduleWord(
 
     const fileName = teachersToExport.length === 1 
         ? `جدول_الأستاذ_${teachersToExport[0].name.replace(/\s+/g, '_')}.doc`
-        : `جداول_المدرسين_الأسبوعية_${schoolName}.doc`;
+        : `جداول_المعلمين_الأسبوعية_${schoolName}.doc`;
 
     downloadBlob(fullHtml, fileName, 'application/msword;charset=utf-8');
 }
@@ -452,7 +452,7 @@ export function buildStageScheduleHtml(
 
         subHeadersHtml += `
             <th style="border: 2px solid #000000; background-color: ${color.subHeaderBg}; color: #000000; font-size: 13px; font-weight: bold; padding: 3px 2px; text-align: center; width: 65px;">المادة</th>
-            <th style="border: 2px solid #000000; background-color: ${color.subHeaderBg}; color: #000000; font-size: 13px; font-weight: bold; padding: 3px 2px; text-align: center; width: 80px;">المدرس</th>
+            <th style="border: 2px solid #000000; background-color: ${color.subHeaderBg}; color: #000000; font-size: 13px; font-weight: bold; padding: 3px 2px; text-align: center; width: 80px;">المعلم</th>
         `;
     });
 

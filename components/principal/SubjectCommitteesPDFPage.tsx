@@ -85,7 +85,7 @@ export default function SubjectCommitteesPDFPage({
                                         {/* Column Headers */}
                                         <tr className="bg-gray-50 border-b-2 border-black text-xs font-black text-black">
                                             <th className="py-1.5 px-2 border-l border-black w-[30%] text-right pr-3">
-                                                اسم المدرس
+                                                اسم المعلم
                                             </th>
                                             <th className="py-1.5 px-2 border-l border-black w-[16%] text-center">
                                                 الصف
@@ -123,7 +123,7 @@ export default function SubjectCommitteesPDFPage({
                                                     colSpan={totalColSpan}
                                                     className="py-2 text-center text-gray-500 font-normal italic"
                                                 >
-                                                    لم يتم إسناد أي شعب لمدرسي هذه المادة بعد
+                                                    لم يتم إسناد أي شعب لمعلمي هذه المادة بعد
                                                 </td>
                                             </tr>
                                         ) : (

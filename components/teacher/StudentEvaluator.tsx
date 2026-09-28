@@ -56,7 +56,7 @@ export default function StudentEvaluator({ student, subject, teacher, isReadOnly
         // Send notification to student
         const notification: Omit<StudentNotification, 'id'> = {
             studentId: student.id,
-            message: `قام المدرس ${teacher.name} بتقييمك في مادة ${subject.name} بتقدير: ${newRating}.`,
+            message: `قام المعلم ${teacher.name} بتقييمك في مادة ${subject.name} بتقدير: ${newRating}.`,
             timestamp: new Date().toISOString(),
             isRead: false
         };

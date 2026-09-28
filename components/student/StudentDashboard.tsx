@@ -241,7 +241,7 @@ export default function StudentDashboard({ evaluations, studentData, studentForm
                                 </table>
                             </div>
                         ) : (
-                            <p className="text-center text-gray-500 py-8">لم يقم المدرسون بتقييمك في أي مادة بعد.</p>
+                            <p className="text-center text-gray-500 py-8">لم يقم المعلمون بتقييمك في أي مادة بعد.</p>
                         )}
                     </div>
                 </div>

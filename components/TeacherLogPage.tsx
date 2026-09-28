@@ -78,7 +78,7 @@ export default function TeacherLogPage({ settings, logos, pageData, resultsData,
                 {renderLogo(logos.ministry, 'شعار الوزارة')}
                 <div className="text-center">
                     <h1 className="text-xl font-bold">{settings.schoolName}</h1>
-                    <h2 className="text-2xl font-bold text-red-600">سجل درجات المدرسين في المدارس المتوسطة</h2>
+                    <h2 className="text-2xl font-bold text-red-600">سجل درجات المعلمين في المدارس المتوسطة</h2>
                    <p className="text-lg font-black text-blue-700">الصف: {classInfo.stage}</p>
 
 <p className="text-lg font-bold">السنة الدراسية {settings.academicYear}</p>
@@ -191,7 +191,7 @@ export default function TeacherLogPage({ settings, logos, pageData, resultsData,
 
             {/* Footer */}
             <footer className="mt-auto flex justify-between font-bold text-lg">
-                <span>اسم مدرس المادة / {teacherName || '..............................'}</span>
+                <span>اسم معلم المادة / {teacherName || '..............................'}</span>
                  <span>مدير المدرسة / {settings.principalName}</span>
             </footer>
         </div>

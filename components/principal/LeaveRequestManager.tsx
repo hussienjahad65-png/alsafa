@@ -47,7 +47,7 @@ export default function LeaveRequestManager({ principal, settings, requests }: L
 
     const handleOpenApproveModal = () => {
         if (!selectedRequest) return;
-        const teacherTerm = settings.schoolLevel === 'ابتدائية' ? 'معلم' : 'مدرس';
+        const teacherTerm = settings.schoolLevel === 'ابتدائية' ? 'معلم' : 'معلم';
         const defaultApprovalBody = `بسم الله الرحمن الرحيم
 تحية طيبة...
 استنادا للصلاحية المخولة الينا تقرر منح السيد/ة (${selectedRequest.teacherName}) ${teacherTerm} مادة (.....) من مدرستنا اجازة خاصة امدها يوم واحد واعتبارا من يوم (.....) الموافق (  /   / 202  )
@@ -103,7 +103,7 @@ ${settings.principalName}
 
         try {
             await db.ref().update(updates);
-            alert('تم تحديث حالة الطلب وإرسال إشعار للمدرس.');
+            alert('تم تحديث حالة الطلب وإرسال إشعار للمعلم.');
             setModalType(null);
             setSelectedRequest(null);
             setRejectionReason('');
@@ -170,7 +170,7 @@ ${settings.principalName}
                         <p className="font-bold mb-2">عندما يقدم أحد أعضاء كادرك الموقر طلبًا، ستظهر جميع الطلبات هنا وستتمكن من:</p>
                         <ul className="list-disc list-inside space-y-1 text-gray-700">
                             <li><strong>الموافقة أو الرفض:</strong> مع إمكانية توضيح سبب الرفض لتعزيز الشفافية.</li>
-                            <li><strong>متابعة الأرصدة:</strong> الاطلاع الفوري على رصيد الإجازات المتبقي لكل مدرس.</li>
+                            <li><strong>متابعة الأرصدة:</strong> الاطلاع الفوري على رصيد الإجازات المتبقي لكل معلم.</li>
                             <li><strong>خصم تلقائي:</strong> سيقوم النظام بخصم أيام الإجازة الموافق عليها من الرصيد الكلي تلقائياً.</li>
                             <li><strong>تصدير المستندات:</strong> يمكنك تصدير نموذج الطلب والموافقة بصيغة PDF بضغطة زر.</li>
                         </ul>
@@ -187,7 +187,7 @@ ${settings.principalName}
             <div className="space-y-4">
                  <button onClick={() => setSelectedRequest(null)} className="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">&larr; العودة للقائمة</button>
                  <div className="p-4 border rounded-lg bg-blue-50">
-                    <h3 className="font-bold text-lg">طلب المدرس: {selectedRequest.teacherName}</h3>
+                    <h3 className="font-bold text-lg">طلب المعلم: {selectedRequest.teacherName}</h3>
                     <p className="font-semibold">الرصيد المتبقي: <span className="text-blue-600">{teacherBalance}</span> أيام</p>
                     <pre className="mt-2 p-3 bg-white border rounded-md whitespace-pre-wrap font-sans">{selectedRequest.requestBody}</pre>
                  </div>

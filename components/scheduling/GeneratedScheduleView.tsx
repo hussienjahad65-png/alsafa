@@ -183,11 +183,11 @@ export default function GeneratedScheduleView({ scheduleData, onUpdateSchedule, 
             };
             
             if (targetAssignment && checkTeacherConflict(sourceDay, sourcePeriod, targetAssignment.teacher, sourceClassKey)) {
-                alert(`يوجد تعارض لا يمكن تدريس شعبتين في نفس الوقت. المدرس ${targetAssignment.teacher} لديه حصة أخرى.`);
+                alert(`يوجد تعارض لا يمكن تدريس شعبتين في نفس الوقت. المعلم ${targetAssignment.teacher} لديه حصة أخرى.`);
                 return;
             }
              if (sourceAssignment && checkTeacherConflict(targetDay, targetPeriod, sourceAssignment.teacher, targetClassKey)) {
-                alert(`يوجد تعارض لا يمكن تدريس شعبتين في نفس الوقت. المدرس ${sourceAssignment.teacher} لديه حصة أخرى.`);
+                alert(`يوجد تعارض لا يمكن تدريس شعبتين في نفس الوقت. المعلم ${sourceAssignment.teacher} لديه حصة أخرى.`);
                 return;
             }
 
@@ -231,7 +231,7 @@ export default function GeneratedScheduleView({ scheduleData, onUpdateSchedule, 
         );
 
         if (!teacherForSubject) {
-            alert(`لم يتم العثور على مدرس لمادة ${subject.name} في هذه الشعبة.`);
+            alert(`لم يتم العثور على معلم لمادة ${subject.name} في هذه الشعبة.`);
             setAddMenu(null);
             return;
         }
